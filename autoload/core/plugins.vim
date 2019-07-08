@@ -119,7 +119,7 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
-source expand('$PLUGPATH/allkey.vim')
+execute 'source' fnameescape(resolve(expand('$PLUGPATH/allkey.vim')))
 
 filetype plugin indent on
 syntax enable
