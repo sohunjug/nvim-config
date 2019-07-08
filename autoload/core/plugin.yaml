@@ -37,6 +37,7 @@
 
 # Interface{{{
 - repo: ryanoasis/vim-devicons
+  on_event: VimEnter
   hook_add: let g:webdevicons_enable_denite = 1
 
 - repo: rhysd/accelerated-jk
