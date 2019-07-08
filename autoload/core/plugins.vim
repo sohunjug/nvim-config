@@ -2,6 +2,8 @@ if !exists('g:plugin_path')
   let g:plugin_path = expand('~/.vim/plugins')
 endif
 
+let $PLUGPATH = fnamemodify(expand('<sfile>'), ':h').'/setting'
+
 let s:plugin_config = fnamemodify(expand('<sfile>'), ':h').'/plugin.yaml'
 if !exists('g:user_plugins_file')
   let g:user_plugin_config = g:plugin_path . '/local_plugin.yaml'
