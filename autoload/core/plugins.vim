@@ -30,7 +30,10 @@ let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
     let s:dein_dir = g:plugin_path . '/dein.vim'
-    if !isdirectory(s:dein_dir)
+    echo !isdirectory(resolve(expand(s:dein_dir)))
+    echo isdirectory(s:dein_dir)
+    echo s:dein_dir
+    if !isdirectory(resolve(expand(s:dein_dir)))
       echomsg 'Download dein plugin management wait a moment'
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
     endif
