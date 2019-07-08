@@ -2,7 +2,7 @@
 inoremap <C-w> <C-[>diwa
 inoremap <C-h> <BS>
 inoremap <C-d> <Del>
-inoremap <C-k>  <ESC>d$a
+inoremap <C-k> <ESC>d$a
 inoremap <C-u> <C-G>u<C-U>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -28,9 +28,12 @@ imap <C-Q> <esc>:wq<CR>
 "insert a newline
 inoremap <C-O> <Esc>o
 
-nnoremap  ]b :bp<CR>
-nnoremap  [b :bn<CR>
+nnoremap ]b :bp<CR>
+nnoremap [b :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bn :bn<CR>
 "delete buffer
+nnoremap <leader>bd :bd<CR>
 nnoremap <C-x>  :bd<CR>
 
 "switch windw
