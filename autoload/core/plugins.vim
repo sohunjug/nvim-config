@@ -39,7 +39,6 @@ import vim, yaml
 with open(vim.eval('a:filename'), 'r') as f:
   vim.vars['denite_plugins'] = yaml.safe_load(f.read())
 endpython
-  endif
 
   for plugin in g:denite_plugins
     call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
