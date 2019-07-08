@@ -43,7 +43,7 @@ function! s:find_node_executable(cmd)
 	return ''
 endfunction
 
-autocmd MyAutoCmd BufWritePre *.js call s:set_javascript_exe()
+autocmd AutoCmd BufWritePre *.js call s:set_javascript_exe()
 call s:set_javascript_exe()
 
 " Plugin: Neomake icons {{{

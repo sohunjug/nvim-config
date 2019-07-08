@@ -6,7 +6,7 @@ let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-pairs','coc-json','coc-python','coc-imselect','coc-highlight','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml']
 
-augroup MyAutoCmd
+augroup AutoCmd
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')

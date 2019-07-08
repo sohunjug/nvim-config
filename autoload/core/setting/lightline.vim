@@ -230,7 +230,7 @@ function! CocUpdateQuickFixes(error, actions) abort
   endif
 endfunction
 
-autocmd  MyAutoCmd User CocDiagnosticChange
+autocmd  AutoCmd User CocDiagnosticChange
 \   call lightline#update()
 \|  call CocActionAsync('quickfixes', function('CocUpdateQuickFixes'))
 
