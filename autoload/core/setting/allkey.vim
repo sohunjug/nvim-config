@@ -113,7 +113,7 @@ endif
 
 
 if dein#tap('vim-go')
-     autocmd MyAutoCmd FileType go
+     autocmd AutoCmd FileType go
                     \  nmap <Leader>gov <Plug>(go-def-vertical)
                     \ | nmap <Leader>goi <Plug>(go-info)
                     \ | nmap <Leader>god <Plug>(go-doc)
@@ -162,7 +162,7 @@ if dein#tap('caw.vim')
       xmap <buffer> gcc <Plug>(caw:hatpos:toggle)
     endif
   endfunction
-  autocmd MyAutoCmd FileType * call InitCaw()
+  autocmd AutoCmd FileType * call InitCaw()
   call InitCaw()
 endif
 
@@ -254,7 +254,7 @@ endif
 
 if dein#tap('vim-smartchr')
     inoremap <expr> , smartchr#one_of(', ', ',')
-    augroup MyAutoCmd
+    augroup AutoCmd
         autocmd FileType go inoremap <buffer><expr> ;
             \ smartchr#loop(':=',';')
         autocmd FileType go inoremap <buffer> <expr> .

@@ -56,6 +56,8 @@ function! s:check_file_notnull(filename)abort
   return 1
 endfunction
 
+set packpath=
+
 if dein#load_state(g:plugin_path)
   call dein#begin(g:plugin_path, [expand('<sfile>'), s:plugin_config])
   try
@@ -94,8 +96,6 @@ function! s:edit_plugin_setting(plugin_name)
 endfunction
 
 command! -nargs=1 EditPluginSetting call s:edit_plugin_setting(<q-args>)
-
-set packpath=
 
 let g:loaded_2html_plugin      = 1
 let g:loaded_logiPat           = 1
