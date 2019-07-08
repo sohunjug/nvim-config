@@ -25,7 +25,7 @@ let g:dein#auto_recache = 1
 let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = g:plugin_path . '/repos/github.com/Shougo/dein.vim'
+    let s:dein_dir = g:plugin_path . '/Shougo/dein.vim'
     if !isdirectory(s:dein_dir)
       echomsg 'Download dein plugin management wait a moment'
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
@@ -82,7 +82,6 @@ if dein#load_state(g:plugin_path)
   if dein#check_install()
     " Installation check.
     call dein#install()
-    call dein#check_clean()
   endif
 endif
 
@@ -97,3 +96,55 @@ endfunction
 command! -nargs=1
   \ EditPluginSetting
   \ call s:edit_plugin_setting(<q-args>)
+
+set packpath=
+
+let g:loaded_2html_plugin      = 1
+let g:loaded_logiPat           = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_gzip              = 1
+let g:loaded_man               = 1
+let g:loaded_matchit           = 1
+let g:loaded_matchparen        = 1
+let g:loaded_netrwFileHandlers = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_shada_plugin      = 1
+let g:loaded_spellfile_plugin  = 1
+let g:loaded_tarPlugin         = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_zipPlugin         = 1
+
+function! s:source_file(path, ...) abort
+  let use_global = get(a:000, 0, !has('vim_starting'))
+  let abspath = resolve(expand($VIMPATH.'/core/' . a:path))
+  if !use_global
+    execute 'source' fnameescape(abspath)
+    return
+  endif
+
+  " substitute all 'set' to 'setglobal'
+  let content = map(readfile(abspath),
+        \ 'substitute(v:val, "^\\W*\\zsset\\ze\\W", "setglobal", "")')
+  " create tempfile and source the tempfile
+  let tempfile = tempname()
+  try
+    call writefile(content, tempfile)
+    execute 'source' fnameescape(tempfile)
+  finally
+    if filereadable(tempfile)
+      call delete(tempfile)
+    endif
+  endtry
+endfunction
+
+
+source $PLUGPATH . '/allkey.vim'
+
+filetype plugin indent on
+syntax enable
+
+call dein#call_hook('source')
+call dein#call_hook('post_source')

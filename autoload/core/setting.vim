@@ -83,15 +83,34 @@ if has('conceal')
 	set conceallevel=3 concealcursor=niv
 endif
 
+execute 'autocmd AutoCmd BufWritePost '.$VIMPATH.'/core/*,vimrc nested' . ' source $MYVIMRC | redraw | silent doautocmd ColorScheme'
+
+augroup AutoCmd
+	autocmd Syntax * if 5000 < line('$') | syntax sync minlines=200 | endif
+	autocmd WinEnter,InsertLeave * set cursorline
+	autocmd WinLeave,InsertEnter * set nocursorline
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
+  autocmd BufWritePre *.js,*.jsx,*.less,*.css,*.html Neoformat
+  " HTML (.gohtml and .tpl for server side)
+  autocmd BufNewFile,BufRead *.html,*.htm,*.gohtml,*.tpl  setf html
+  autocmd InsertLeave,TextChanged,FocusLost *.go silent! wall
+  autocmd FileType css setlocal equalprg=csstidy\ -\ --silent=true
+  autocmd FileType json syntax match Comment +\/\/.\+$+
+  " Go (Google)
+  autocmd FileType go let b:coc_pairs_disabled = ['<']
+	" https://webpack.github.io/docs/webpack-dev-server.html#working-with-editors-ides-supporting-safe-write
+	autocmd FileType css,javascript,jsx,javascript.jsx setlocal backupcopy=yes | setlocal equalprg=jslint
+augroup END
+
 " FastFold
 " Credits: https://github.com/Shougo/shougo-s-github
-autocmd MyAutoCmd TextChangedI,TextChanged *
+autocmd AutoCmd TextChangedI,TextChanged *
 	\ if &l:foldenable && &l:foldmethod !=# 'manual' |
 	\   let b:foldmethod_save = &l:foldmethod |
 	\   let &l:foldmethod = 'manual' |
 	\ endif
 
-autocmd MyAutoCmd BufWritePost *
+autocmd AutoCmd BufWritePost *
 	\ if &l:foldmethod ==# 'manual' && exists('b:foldmethod_save') |
 	\   let &l:foldmethod = b:foldmethod_save |
 	\   execute 'normal! zx' |
