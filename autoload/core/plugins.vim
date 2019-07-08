@@ -30,9 +30,6 @@ let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
     let s:dein_dir = g:plugin_path . '/dein.vim'
-    echo !isdirectory(resolve(expand(s:dein_dir)))
-    echo isdirectory(s:dein_dir)
-    echo s:dein_dir
     if !isdirectory(resolve(expand(s:dein_dir)))
       echomsg 'Download dein plugin management wait a moment'
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
@@ -94,6 +91,13 @@ if dein#load_state(g:plugin_path)
   endif
 endif
 
+execute 'source' fnameescape(resolve(expand('$PLUGPATH/allkey.vim')))
+
+filetype plugin indent on
+syntax enable
+
+call dein#call_hook('source')
+call dein#call_hook('post_source')
 
 function! s:edit_plugin_setting(plugin_name)
   if !isdirectory(g:plugin_setting_dirname)
@@ -122,10 +126,3 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
-execute 'source' fnameescape(resolve(expand('$PLUGPATH/allkey.vim')))
-
-filetype plugin indent on
-syntax enable
-
-call dein#call_hook('source')
-call dein#call_hook('post_source')
