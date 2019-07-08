@@ -1,4 +1,4 @@
-let g:gutentags_cache_dir = $VARPATH.'/tags'
+let g:gutentags_cache_dir = expand(g:plugin_path . '/tags')
 let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0

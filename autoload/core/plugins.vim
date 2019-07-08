@@ -93,9 +93,7 @@ function! s:edit_plugin_setting(plugin_name)
   execute 'edit' g:plugin_setting_dirname . '/' . a:plugin_name . '.vim'
 endfunction
 
-command! -nargs=1
-  \ EditPluginSetting
-  \ call s:edit_plugin_setting(<q-args>)
+command! -nargs=1 EditPluginSetting call s:edit_plugin_setting(<q-args>)
 
 set packpath=
 
@@ -117,7 +115,7 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
-source $PLUGPATH . '/allkey.vim'
+source expand('$PLUGPATH/allkey.vim')
 
 filetype plugin indent on
 syntax enable

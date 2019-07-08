@@ -1,5 +1,5 @@
 " For startify
-" let g:startify_padding_left = 35
+let g:startify_padding_left = 15
 let s:header = [
     \   '+---------------------------------------------------------+',
     \   '|  Welcome to use sohunjug vim config                     |',
