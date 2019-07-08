@@ -19,18 +19,19 @@ endif
 
 let s:is_sudo = $SUDO_USER !=# '' && $USER !=# $SUDO_USER
 " dein configurations.
-let g:dein#install_max_processes = 26
+let g:dein#install_max_processes = 16
 let g:dein#install_progress_type = 'echo'
 let g:dein#enable_notification = 1
-let g:dein#install_progress_type = 'title'
+let g:dein#install_message_type = 'echo'
 let g:dein#install_log_filename = '/tmp/dein.log'
+let g:dein#types#git#clone_depth = 1
 let g:dein#auto_recache = 1
 
 let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = g:plugin_path . '/dein.vim'
-    if !isdirectory(resolve(expand(s:dein_dir)))
+    let s:dein_dir = expand(g:plugin_path . '/dein.vim')
+    if !isdirectory(s:dein_dir)
       echomsg 'Download dein plugin management wait a moment'
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
     endif
@@ -88,6 +89,7 @@ if dein#load_state(g:plugin_path)
       if s:check_file_notnull(g:user_plugin_config)
         call s:dein_load_yaml(g:user_plugin_config)
       endif
+      call dein#add(s:dein_dir)
     endif
   catch /.*/
     echoerr v:exception
@@ -125,3 +127,8 @@ function! s:edit_plugin_setting(plugin_name)
 endfunction
 
 command! -nargs=1 EditPluginSetting call s:edit_plugin_setting(<q-args>)
+
+if !filereadable(expand("~/.config/nvim/coc-settings.json"))
+  execute '!rm -rf ~/.config/nvim/coc-settings.json'
+  execute '!ln -sf ' . $PLUGPATH . '/coc-settings.json ~/.config/nvim/coc-settings.json'
+endif

@@ -1,7 +1,7 @@
 "nerdtree
 let nerdtreequitonopen = 0
-let NERDTreeShowHidden=0
-let nerdchristmastree=1
+let NERDTreeShowHidden = 0
+let nerdchristmastree = 1
 let g:nerdtreewinsize = 25
 let g:NERDTreeDirArrowExpandable = '▷'
 let g:NERDTreeDirArrowCollapsible = '▼'

@@ -21,8 +21,8 @@ cnoremap <C-h> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Write buffer (save)
-noremap <Leader>w :w<CR>
-imap <C-S> <esc>:w<CR>
+noremap <localleader>w :w<CR>
+imap <C-s> <esc>:w<CR>
 imap <C-Q> <esc>:wq<CR>
 
 "insert a newline
@@ -46,9 +46,7 @@ vnoremap j gj
 vnoremap k gk
 
 "tabline operation
-noremap <leader>tn :tabnew<cr>
-noremap <leader>te :tabedit
-noremap <leader>tm :tabmove
+noremap <leader>bn :tabnew<cr>
 
 "yank to end
 nnoremap Y y$
@@ -61,16 +59,16 @@ nmap <C-w>] :vertical resize +3<CR>
 nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
 
 " a command which  edit PLugin config easy
-nnoremap <leader>p :EditPluginSetting <Space>
+nnoremap <leader>pe :EditPluginSetting <Space>
 
-nmap <leader>1 <Plug>BufTabLine.Go(1)
-nmap <leader>2 <Plug>BufTabLine.Go(2)
-nmap <leader>3 <Plug>BufTabLine.Go(3)
-nmap <leader>4 <Plug>BufTabLine.Go(4)
-nmap <leader>5 <Plug>BufTabLine.Go(5)
-nmap <leader>6 <Plug>BufTabLine.Go(6)
-nmap <leader>7 <Plug>BufTabLine.Go(7)
-nmap <leader>8 <Plug>BufTabLine.Go(8)
-nmap <leader>9 <Plug>BufTabLine.Go(9)
-nmap <leader>0 <Plug>BufTabLine.Go(10)
+nmap <leader>b1 <Plug>BufTabLine.Go(1)
+nmap <leader>b2 <Plug>BufTabLine.Go(2)
+nmap <leader>b3 <Plug>BufTabLine.Go(3)
+nmap <leader>b4 <Plug>BufTabLine.Go(4)
+nmap <leader>b5 <Plug>BufTabLine.Go(5)
+nmap <leader>b6 <Plug>BufTabLine.Go(6)
+nmap <leader>b7 <Plug>BufTabLine.Go(7)
+nmap <leader>b8 <Plug>BufTabLine.Go(8)
+nmap <leader>b9 <Plug>BufTabLine.Go(9)
+nmap <leader>b0 <Plug>BufTabLine.Go(10)
 

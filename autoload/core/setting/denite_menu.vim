@@ -64,8 +64,8 @@ let s:menus.thinkvim.file_candidates = [
 
 call denite#custom#var('menu', 'menus', s:menus)
 
-"let s:menus.sessions = { 'description': 'Sessions' }
-"let s:menus.sessions.command_candidates = [
-  "\   ['▶ Restore session │ ;s', 'Denite session'],
-  "\   ['▶ Save session…   │', 'Denite session/new'],
-  "\ ]
+let s:menus.sessions = { 'description': 'Sessions' }
+let s:menus.sessions.command_candidates = [
+  \   ['▶ Restore session │ ;s', 'Denite session'],
+  \   ['▶ Save session…   │', 'Denite session/new'],
+  \ ]
