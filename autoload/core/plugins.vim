@@ -1,13 +1,15 @@
-if !exist('g:Plugin_dir')
-  let g:Plugin_dir = expand('~/.vim/plugins')
+if !exist('g:plugin_path')
+  let g:plugin_path = expand('~/.vim/plugins')
 endif
 
-let s:plugins_config = fnamemodify(expand('<sfile>'), ':h').'/plugins.yaml'
+let s:plugin_config = fnamemodify(expand('<sfile>'), ':h').'/plugins.yaml'
 if !exist('g:user_plugins_file')
-  let g:user_plugins_file = g:Plugin_dir . '/local_plugins.yaml'
+  let g:user_plugin_config = g:plugin_path . '/local_plugins.yaml'
 endif
 
-let s:plugin_setting_dirname = expand('$VIMPATH/core/plugins/')
+if !exist('g:plugin_setting_dirname')
+  let g:plugin_setting_dirname = expand('~/.vim/setting/')
+endif
 
 let s:is_sudo = $SUDO_USER !=# '' && $USER !=# $SUDO_USER
 " dein configurations.
@@ -41,13 +43,13 @@ function! s:check_file_notnull(filename)abort
   return 1
 endfunction
 
-if dein#load_state(s:path)
-  call dein#begin(s:path, [expand('<sfile>'), s:plugins_path])
+if dein#load_state(g:plugin_path)
+  call dein#begin(g:plugin_path, [expand('<sfile>'), s:plugin_config])
   try
-    call s:dein_load_yaml(s:plugins_path)
-    if filereadable(s:user_plugins_path)
-      if s:check_file_notnull(s:user_plugins_path)
-        call s:dein_load_yaml(s:user_plugins_path)
+    call s:dein_load_yaml(s:plugin_config)
+    if filereadable(g:user_plugin_config)
+      if s:check_file_notnull(g:user_plugin_config)
+        call s:dein_load_yaml(g:user_plugin_config)
       endif
     endif
   catch /.*/
@@ -73,10 +75,10 @@ endif
 
 
 function! s:edit_plugin_setting(plugin_name)
-  if !isdirectory(s:plugin_setting_dirname)
-    call mkdir(s:plugin_setting_dirname)
+  if !isdirectory(g:plugin_setting_dirname)
+    call mkdir(g:plugin_setting_dirname)
   endif
-  execute 'edit' s:plugin_setting_dirname . '/' . a:plugin_name . '.vim'
+  execute 'edit' g:plugin_setting_dirname . '/' . a:plugin_name . '.vim'
 endfunction
 
 command! -nargs=1
