@@ -1,3 +1,7 @@
+if &compatible
+  set nocompatible
+endif
+
 if !exists('g:plugin_path')
   let g:plugin_path = expand('~/.vim/plugins')
 endif
@@ -15,7 +19,7 @@ endif
 
 let s:is_sudo = $SUDO_USER !=# '' && $USER !=# $SUDO_USER
 " dein configurations.
-let g:dein#install_max_processes = 16
+let g:dein#install_max_processes = 26
 let g:dein#install_progress_type = 'echo'
 let g:dein#enable_notification = 1
 let g:dein#install_progress_type = 'title'
