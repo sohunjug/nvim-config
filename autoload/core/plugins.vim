@@ -20,6 +20,18 @@ let g:dein#install_progress_type = 'title'
 let g:dein#install_log_filename = '/tmp/dein.log'
 let g:dein#auto_recache = 1
 
+let s:dein_dir = finddir('dein.vim', '.;')
+if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+    let s:dein_dir = g:plugin_path . '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      echomsg 'Download dein plugin management wait a moment'
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+  endif
+  execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_dir, ':p') , '/$', '', '')
+endif
+
 function! s:dein_load_yaml(filename) abort
   " Fallback to use python3 and PyYAML
   python3 << endpython
@@ -42,18 +54,6 @@ function! s:check_file_notnull(filename)abort
   endif
   return 1
 endfunction
-
-let s:dein_dir = finddir('dein.vim', '.;')
-if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
-  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = g:plugin_path . '/repos/github.com/Shougo/dein.vim'
-    if !isdirectory(s:dein_dir)
-      echomsg 'Download dein plugin management wait a moment'
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-    endif
-  endif
-  execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_dir, ':p') , '/$', '', '')
-endif
 
 if dein#load_state(g:plugin_path)
   call dein#begin(g:plugin_path, [expand('<sfile>'), s:plugin_config])
