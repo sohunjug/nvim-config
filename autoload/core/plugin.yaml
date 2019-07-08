@@ -11,7 +11,7 @@
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
-  hook_add: source  $PLUGPATH/core/plugins/coc.vim
+  hook_add: source  $PLUGPATH/coc.vim
 # }}}
 
 # Lazy Loading
@@ -22,8 +22,8 @@
   on_cmd: Denite
   depends: vim-devicons
   hook_source: |
-    source  $PLUGPATH/core/plugins/denite.vim
-    source  $PLUGPATH/core/plugins/denite_menu.vim
+    source  $PLUGPATH/denite.vim
+    source  $PLUGPATH/denite_menu.vim
 
 - repo: chemzqm/denite-git
   on_source: denite.nvim
@@ -44,16 +44,16 @@
 
 - repo: t9md/vim-choosewin
   on_map: { n: <Plug> }
-  hook_source: source  $PLUGPATH/core/plugins/vim-choosewin.vim
+  hook_source: source  $PLUGPATH/vim-choosewin.vim
 
 - repo: ludovicchabant/vim-gutentags
   if: executable('ctags')
   on_path: .*
-  hook_source: source  $PLUGPATH/core/plugins/vim-gutentags.vim
+  hook_source: source  $PLUGPATH/vim-gutentags.vim
 
 - repo: junegunn/goyo.vim
   on_cmd: Goyo
-  hook_source: source  $PLUGPATH/core/plugins/goyo.vim
+  hook_source: source  $PLUGPATH/goyo.vim
 
 - repo: junegunn/Limelight.vim
   on_cmd: Limelight
@@ -62,7 +62,7 @@
   on_cmd: Startify
   on_event: VimEnter
   depends: vim-devicons
-  hook_source: source  $PLUGPATH/core/plugins/startify.vim
+  hook_source: source  $PLUGPATH/startify.vim
   hook_post_source: |
     function! StartifyEntryFormat()
       return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
@@ -125,7 +125,7 @@
 
 - repo: liuchengxu/vim-which-key
   on_cmd: [Whichkey, Whichkey!]
-  hook_source: source  $PLUGPATH/core/plugins/whichkey.vim
+  hook_source: source  $PLUGPATH/whichkey.vim
   hook_post_source: |
     call which_key#register('<Space>', 'g:which_key_map')
     call which_key#register(';', 'g:which_key_localmap')
@@ -150,11 +150,11 @@
 # File manager{{{
 - repo: Shougo/defx.nvim
   on_cmd: Defx
-  hook_source: source  $PLUGPATH/core/plugins/defx.vim
+  hook_source: source  $PLUGPATH/defx.vim
 
 - repo: kristijanhusak/defx-git
   on_source: defx.nvim
-  hook_source: source  $PLUGPATH/core/plugins/defx-git.vim
+  hook_source: source  $PLUGPATH/defx-git.vim
 
 - repo: kristijanhusak/defx-icons
   on_source: defx.nvim
@@ -169,7 +169,7 @@
 - repo: junegunn/fzf.vim
   depends: fzf
   on_cmd: [Colors, Rg, Buffers]
-  hook_add: source  $PLUGPATH/core/plugins/fzf.vim
+  hook_add: source  $PLUGPATH/fzf.vim
 
 # }}}
 
@@ -184,7 +184,7 @@
 # use coc-git instead of vim-gitgutter
 # - repo: airblade/vim-gitgutter
 #   on_path: .*
-#   hook_source: source ~/.config/nvim/core/plugins/vim-gitgutter.vim
+#   hook_source: source ~/.config/nvim/vim-gitgutter.vim
 
 # }}}
 
@@ -222,7 +222,7 @@
 
 - repo: fatih/vim-go
   on_ft: go
-  hook_source: source  $PLUGPATH/core/plugins/vim-go.vim
+  hook_source: source  $PLUGPATH/vim-go.vim
 
 - repo: tpope/vim-markdown
   on_ft: markdown
@@ -244,19 +244,19 @@
 
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat, Neoformat!]
-  hook_source: source  $PLUGPATH/core/plugins/neoformat.vim
+  hook_source: source  $PLUGPATH/neoformat.vim
 
 - repo: Yggdroot/indentLine
   on_ft: [python, html, css, vim, javascript, jsx, javascript.jsx, vue]
-  hook_source: source $PLUGPATH/core/plugins/indentline.vim
+  hook_source: source $PLUGPATH/indentline.vim
 
 - repo: liuchengxu/vista.vim
   on_cmd: [Vista, Vista!, Vista!!]
-  hook_source: source  $PLUGPATH/core/plugins/vista.vim
+  hook_source: source  $PLUGPATH/vista.vim
 
 - repo: majutsushi/tagbar
   on_cmd: TagbarToggle
-  hook_source: source  $PLUGPATH/core/plugins/tagbar.vim
+  hook_source: source  $PLUGPATH/tagbar.vim
 
 - repo: mattn/emmet-vim
   on_ft: [html, css, jsx, javascript, javascript.jsx]
@@ -284,7 +284,7 @@
     let g:echodoc#type = "virtual"
 
 # - repo: w0rp/ale
-#   hook_add: source ~/.config/nvim/core/plugins/vim-ale.vim
+#   hook_add: source ~/.config/nvim/vim-ale.vim
 
 # }}}
 
@@ -322,7 +322,7 @@
 #   on_map:  { vnx : <Plug> }
 # - repo: itchyny/lightline.vim
 #   depends: vim-devicons
-#   hook_add: source  $PLUGPATH/core/plugins/lightline.vim
+#   hook_add: source  $PLUGPATH/lightline.vim
 # - repo: mengelbrecht/lightline-bufferline
-#   hook_add: source  $PLUGPATH/core/plugins/lightline.vim
+#   hook_add: source  $PLUGPATH/lightline.vim
 # }}}
