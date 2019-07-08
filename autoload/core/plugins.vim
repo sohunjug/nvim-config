@@ -3,8 +3,10 @@ if &compatible
 endif
 
 if !exists('g:plugin_path')
-  let g:plugin_path = expand('~/.vim/plugins')
+  let g:plugin_path = '~/.vim/plugins'
 endif
+
+let g:plugin_path = expand(g:plugin_path)
 
 let $PLUGPATH = fnamemodify(expand('<sfile>'), ':h').'/setting'
 
@@ -25,6 +27,7 @@ let g:dein#enable_notification = 1
 let g:dein#install_message_type = 'echo'
 let g:dein#install_log_filename = '/tmp/dein.log'
 let g:dein#types#git#clone_depth = 1
+let g:dein#install_process_timeout = 120
 let g:dein#auto_recache = 1
 
 let s:dein_dir = finddir('dein.vim', '.;')
@@ -38,6 +41,21 @@ if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   endif
   execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
+
+let s:dein_ui = finddir('dein-ui.vim', '.;')
+if s:dein_ui != '' || &runtimepath !~ '/dein-ui.vim'
+  if s:dein_ui == '' && &runtimepath !~ '/dein-ui.vim'
+    let s:dein_ui = expand(g:plugin_path . '/dein-ui.vim')
+    if !isdirectory(s:dein_ui)
+      echomsg 'Download dein ui plugin management wait a moment'
+      execute '!git clone https://github.com/wsdjeg/dein-ui.vim' s:dein_ui
+    endif
+  endif
+  execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_ui, ':p') , '/$', '', '')
+endif
+
+let g:spacevim_plugin_manager = 'dein'
+let g:spacevim_plugin_manager_processes = 16
 
 let g:loaded_2html_plugin      = 1
 let g:loaded_logiPat           = 1
@@ -56,6 +74,8 @@ let g:loaded_tarPlugin         = 1
 let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
+
+set runtimepath
 
 function! s:dein_load_yaml(filename) abort
   " Fallback to use python3 and PyYAML
@@ -81,15 +101,25 @@ endfunction
 
 set packpath=
 
+if has('gui_running')
+   set guioptions=Mc
+endif
+
+augroup AutoCmd
+	autocmd!
+	autocmd CursorHold *? syntax sync minlines=300
+augroup END
+
 if dein#load_state(g:plugin_path)
   call dein#begin(g:plugin_path, [expand('<sfile>'), s:plugin_config])
   try
+    call dein#add(s:dein_dir)
+    call dein#add(s:dein_ui)
     call s:dein_load_yaml(s:plugin_config)
     if filereadable(g:user_plugin_config)
       if s:check_file_notnull(g:user_plugin_config)
         call s:dein_load_yaml(g:user_plugin_config)
       endif
-      call dein#add(s:dein_dir)
     endif
   catch /.*/
     echoerr v:exception
@@ -98,17 +128,17 @@ if dein#load_state(g:plugin_path)
     echoerr 'Please run: pip3 install --user PyYAML'
   endtry
   call dein#end()
-  if ! s:is_sudo
-    call dein#save_state()
-  endif
+  call dein#save_state()
 
   filetype plugin indent on
   syntax enable
 
-  if dein#check_install()
-    " Installation check.
-    call dein#install()
-  endif
+endif
+
+if dein#check_install()
+  " Installation check.
+  call SpaceVim#plugins#manager#install()
+  " call dein#install()
 endif
 
 execute 'source' fnameescape(resolve(expand('$PLUGPATH/allkey.vim')))

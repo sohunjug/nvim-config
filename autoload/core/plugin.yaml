@@ -3,7 +3,7 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
-- repo: wsdjeg/dein-ui.vim
+#- repo: wsdjeg/dein-ui.vim
 - repo: honza/vim-snippets
 
 #}}}

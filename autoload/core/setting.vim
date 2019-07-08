@@ -7,8 +7,6 @@ set splitbelow
 set bsdir=buffer
 if has('vim_starting')
   set encoding=UTF-8
-  set fileencoding=utf-8
-  set fileencodings=utf-8,gbk,gb18030,gk2312,chinese,latin-1
   scriptencoding UTF-8
 endif
 set laststatus=2
@@ -80,6 +78,8 @@ set matchtime=1     " Tenths of a second to show the matching paren
 set cpoptions-=m    " showmatch will wait 0.5s or until a char is typed
 set grepprg=rg\ --vimgrep\ $*
 set wildignore+=*.so,*~,*/.git/*,*/.svn/*,*/.DS_Store,*/tmp/*
+"set fileencoding=utf-8
+"set fileencodings=utf-8,gbk,gb18030,gk2312,chinese,latin-1
 
 if has('conceal')
   set conceallevel=3 concealcursor=niv
