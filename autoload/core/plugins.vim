@@ -1,13 +1,13 @@
-if !exist('g:plugin_path')
+if !exists('g:plugin_path')
   let g:plugin_path = expand('~/.vim/plugins')
 endif
 
 let s:plugin_config = fnamemodify(expand('<sfile>'), ':h').'/plugins.yaml'
-if !exist('g:user_plugins_file')
+if !exists('g:user_plugins_file')
   let g:user_plugin_config = g:plugin_path . '/local_plugins.yaml'
 endif
 
-if !exist('g:plugin_setting_dirname')
+if !exists('g:plugin_setting_dirname')
   let g:plugin_setting_dirname = expand('~/.vim/setting/')
 endif
 
@@ -42,6 +42,18 @@ function! s:check_file_notnull(filename)abort
   endif
   return 1
 endfunction
+
+let s:dein_dir = finddir('dein.vim', '.;')
+if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+    let s:dein_dir = g:plugin_path . '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      echomsg 'Download dein plugin management wait a moment'
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+  endif
+  execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_dir, ':p') , '/$', '', '')
+endif
 
 if dein#load_state(g:plugin_path)
   call dein#begin(g:plugin_path, [expand('<sfile>'), s:plugin_config])
