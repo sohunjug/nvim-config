@@ -162,7 +162,24 @@ endfunction
 
 command! -nargs=1 EditPluginSetting call s:edit_plugin_setting(<q-args>)
 
-if !filereadable(expand("~/.config/nvim/coc-settings.json"))
-  execute '!rm -rf ~/.config/nvim/coc-settings.json'
-  execute '!ln -sf ' . $PLUGPATH . '/coc-settings.json ~/.config/nvim/coc-settings.json'
+if !exists('s:config_dir')
+  let s:config_dir = finddir('vim-theme', $VIMCONFIG)
+endif
+if s:config_dir != '' || &runtimepath !~ '/vim-theme'
+  if s:config_dir == '' && &runtimepath !~ '/vim-theme'
+    let s:config_dir = expand(g:plugin_path) . '/repos/github.com/sohunjug/vim-theme'
+    if !isdirectory(s:config_dir)
+      echomsg 'Download sohunjug vim config wait a moment'
+      execute '!git clone --depth=1 https://github.com/sohunjug/vim-theme' s:config_dir
+    endif
+  endif
+  execute 'set runtimepath^=' . substitute(fnamemodify(s:config_dir, ':p'), '/$', '', '')
+endif
+
+execute 'source' fnameescape(resolve(expand(s:config_dir . '/autoload/init.vim')))
+
+let s:coc_setting = expand($VIMCONFIG . "/coc-settings.json")
+if !filereadable(s:coc_setting)
+  execute '!rm -rf ' . s:coc_setting
+  execute '!ln -sf ' . $PLUGPATH . '/coc-settings.json ' . s:coc_setting
 endif
