@@ -4,3 +4,5 @@ let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 set sessionoptions-=tabpages
 set sessionoptions-=help
+set sessionoptions-=buffers
+set sessionoptions-=options

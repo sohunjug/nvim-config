@@ -34,13 +34,13 @@ function! s:my_denite_file_rec_goroot() abort
   call denite#start([{'name': 'file/rec', 'args': [goroot]}], {'input': '.go'})
 endfunction
 
-if dein#tap('Neoformat')
+if dein#tap('neoformat')
   nnoremap <leader>bf     :Neoformat<CR>
 endif
 
 if dein#tap('vim-session')
-  nnoremap <leader>so :OpenSession<Space>
-  nnoremap <leader>ss :SaveSession<Space>
+  nnoremap <leader>so :OpenSession<CR>
+  nnoremap <leader>ss :SaveSession<CR>
   nmap <leader>sl :SessionList<CR>
   nmap <leader>sa :SSave<CR>
   nnoremap <leader>sc :CloseSession<CR>

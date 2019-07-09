@@ -277,3 +277,10 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript setl tabstop=2|setl shiftwidth=2|setl expandtab softtabstop=2
 augroup END
+
+augroup vimrc-kkf2
+  autocmd!
+  autocmd BufWrite,BufRead *.kkf2 set filetype=lua
+  autocmd FileType lua setl tabstop=2|setl shiftwidth=2|setl expandtab softtabstop=2
+augroup END
+

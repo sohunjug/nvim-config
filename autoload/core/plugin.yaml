@@ -27,7 +27,7 @@
 #}}}
 #
 - repo: xolox/vim-session
-  on_cmd: Whichkey
+  on_event: VimEnter
   hook_source: source $PLUGPATH/session.vim
 
 - repo: vim-scripts/a.vim
@@ -189,7 +189,7 @@
 
 # File manager{{{
 - repo: Shougo/defx.nvim
-  on_cmd: Defx
+  on_path: .*
   hook_source: |
     UpdateRemotePlugins
     source $PLUGPATH/defx.vim

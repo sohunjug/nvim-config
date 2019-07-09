@@ -2,8 +2,9 @@ let g:which_key_map =  {}
 let g:which_key_map = {
       \ 'name' : 'sohunjug-VimRoot ' ,
       \ '-' : 'ChooseWin' ,
+      \ '.' : 'lcd .' ,
       \ 'b' : {
-            \ 'name' : '+Buffers',
+            \ 'name' : 'Buffers',
             \ '1' : 'Buffer-1'      ,
             \ '2' : 'Buffer-2'      ,
             \ '3' : 'Buffer-3'      ,
@@ -13,16 +14,16 @@ let g:which_key_map = {
             \ '7' : 'Buffer-7'      ,
             \ '8' : 'Buffer-8'      ,
             \ '9' : 'Buffer-9'      ,
-            \ '0' : 'Buffer-10'      ,
+            \ '0' : 'Buffer-10'     ,
             \ },
       \ 'c' : {
-            \ 'name' : '+NERDCommenter',
+            \ 'name' : 'Comment',
             \ 'c' : 'CommentToggle',
             \ },
       \ 'd' : 'Dash' ,
       \ 'G' : 'Goyo' ,
       \ 'z' : {
-            \ 'name' : '+FzfCommand',
+            \ 'name' : 'FzfCommand',
             \ 'b' : 'Bufferlist',
             \ 'f' : 'FindFile',
             \ 'r' : 'RgSearch',
@@ -31,21 +32,32 @@ let g:which_key_map = {
             \ 'v' : 'Vista Finder',
             \ },
       \ 'm' : 'OpenMundo' ,
-      \ 'w' : 'Save',
-      \ ';' : 'Comment',
+      \ 'y' : 'History' ,
+      \ 'f' : {
+            \ 'name' : 'File',
+            \ },
+      \ 't' : {
+            \ 'name' : 'Tag',
+            \ },
+      \ 'w' : {
+            \ 'name' : 'Win',
+            \ },
+      \ 's' : {
+            \ 'name' : 'Session',
+            \ },
       \ 'p' : {
-            \ 'name' : '+Project',
+            \ 'name' : 'Project',
             \ 'e' : 'EditPluginsConfig',
             \ },
       \ 'leader' : {
-            \ 'name' : '+Easymotion',
+            \ 'name' : 'Easymotion',
             \ '/' : 'Easymotion-sn',
             \ 'w' : 'Easymotion-w',
             \ 'b' : 'Easymotion-b',
             \ 'f' : 'Easymotion-f',
             \ },
       \ 'o'    : {
-            \ 'name' : '+Coc' ,
+            \ 'name' : 'Coc' ,
             \ 'a'    : 'CocCodeActionSelected',
             \ 'd'    : 'CocDiagnostics',
             \ 'c'    : 'CocCommands',
@@ -62,12 +74,12 @@ let g:which_key_map = {
             \ 'f'    : 'CocFormat',
             \ },
       \ 'q' : {
-            \ 'name' : '+Close',
+            \ 'name' : 'Close',
             \ 'b': ['bd', 'Buffer'],
             \ 'q': ['qa', 'Quit'],
             \ },
       \ 'g' : {
-            \ 'name' : '+Vim-Go',
+            \ 'name' : 'Vim-Go',
             \ 'r'    : 'GoRename',
             \ 'o ': {
                 \ 'name':'+GoTool',
