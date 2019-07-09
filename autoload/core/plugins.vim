@@ -30,10 +30,15 @@ let g:dein#types#git#clone_depth = 1
 let g:dein#install_process_timeout = 120
 let g:dein#auto_recache = 1
 
+augroup AutoCmd
+	autocmd!
+	autocmd CursorHold *? syntax sync minlines=300
+augroup END
+
 let s:dein_dir = finddir('dein.vim', '.;')
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
-    let s:dein_dir = expand(g:plugin_path . '/dein.vim')
+    let s:dein_dir = expand(g:plugin_path . '/repos/giithub.com/Shougo/dein.vim')
     if !isdirectory(s:dein_dir)
       echomsg 'Download dein plugin management wait a moment'
       execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
@@ -45,7 +50,7 @@ endif
 let s:dein_ui = finddir('dein-ui.vim', '.;')
 if s:dein_ui != '' || &runtimepath !~ '/dein-ui.vim'
   if s:dein_ui == '' && &runtimepath !~ '/dein-ui.vim'
-    let s:dein_ui = expand(g:plugin_path . '/dein-ui.vim')
+    let s:dein_ui = expand(g:plugin_path . '/repos/giithub.com/Shougo/dein-ui.vim')
     if !isdirectory(s:dein_ui)
       echomsg 'Download dein ui plugin management wait a moment'
       execute '!git clone https://github.com/wsdjeg/dein-ui.vim' s:dein_ui
