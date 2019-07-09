@@ -163,7 +163,7 @@ endfunction
 command! -nargs=1 EditPluginSetting call s:edit_plugin_setting(<q-args>)
 
 if !exists('s:theme_dir')
-  let s:theme_dir = finddir('vim-theme', $VIMCONFIG)
+  let s:theme_dir = finddir('vim-theme', g:plugin_path)
 endif
 if s:theme_dir != '' || &runtimepath !~ '/vim-theme'
   if s:theme_dir == '' && &runtimepath !~ '/vim-theme'
@@ -178,7 +178,13 @@ endif
 
 execute 'source' fnameescape(resolve(expand(s:theme_dir . '/autoload/init.vim')))
 
-let s:coc_setting = expand($VIMCONFIG . "/coc-settings.json")
+if has('nvim')
+  let s:vim_config = '~/.config/nvim'
+else
+  let s:vim_config = '~/.vim'
+endif
+
+let s:coc_setting = expand(s:vim_config . "/coc-settings.json")
 if !filereadable(s:coc_setting)
   execute '!rm -rf ' . s:coc_setting
   execute '!ln -sf ' . $PLUGPATH . '/coc-settings.json ' . s:coc_setting
