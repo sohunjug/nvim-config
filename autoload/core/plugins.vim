@@ -176,8 +176,6 @@ if s:theme_dir != '' || &runtimepath !~ '/vim-theme'
   execute 'set runtimepath^=' . substitute(fnamemodify(s:theme_dir, ':p'), '/$', '', '')
 endif
 
-execute 'source' fnameescape(resolve(expand(s:theme_dir . '/autoload/init.vim')))
-
 if has('nvim')
   let s:vim_config = '~/.config/nvim'
 else
