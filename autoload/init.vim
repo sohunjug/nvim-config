@@ -15,4 +15,10 @@ if !exists('g:python3_host_prog')
 endif
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/core/plugins.vim'
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/core/setting.vim'
+
+augroup AutoCmd
+  autocmd!
+  autocmd CursorHold *? syntax sync minlines=300
+augroup END
+
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/core/mapping.vim'
