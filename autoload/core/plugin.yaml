@@ -3,6 +3,8 @@
 
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
+- repo: sohunjug/vim-config
+  merge: 0
 - repo: sohunjug/vim-theme
   merge: 0
 - repo: wsdjeg/dein-ui.vim
