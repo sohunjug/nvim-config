@@ -169,8 +169,8 @@ endif
 
 
 if dein#tap('comfortable-motion.vim')
-  nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-  nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+  nnoremap <silent> [d :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+  nnoremap <silent> [u :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
   nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
   nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
 endif
@@ -185,10 +185,10 @@ if dein#tap('goyo.vim')
 endif
 
 if dein#tap('defx.nvim')
-  nnoremap <silent> <leader>ft :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-  nnoremap <silent> <leader>fd :<C-u>Defx -resume -split=floating -winwidth=100 -buffer-name=tab`tabpagenr()`<CR>
-  nnoremap <silent> <localleader>e :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-  nnoremap <silent> <localleader>a :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
+  nnoremap <silent> <leader>ft :<C-u>Defx -toggle -buffer-name=tab`tabpagenr()`<CR>
+  nnoremap <silent> <leader>fd :<C-u>Defx -split=floating -winwidth=100 -buffer-name=tab`tabpagenr()`<CR>
+  nnoremap <silent> <localleader>e :<C-u>Defx -toggle -buffer-name=tab`tabpagenr()`<CR>
+  nnoremap <silent> <localleader>a :<C-u>Defx -toggle -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
 endif
 
 if dein#tap('nerdcommenter')
