@@ -4,7 +4,7 @@
 # StartUp Plugins{{{
 - repo: Shougo/dein.vim
 - repo: sohunjug/vim-theme
-  on_event: VimEnter
+  merge: 0
 - repo: wsdjeg/dein-ui.vim
 - repo: honza/vim-snippets
 
