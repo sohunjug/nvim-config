@@ -119,6 +119,10 @@ if dein#load_state(g:plugin_path)
   try
     call dein#add(s:dein_dir)
     call dein#add(s:dein_ui)
+    if !has('nvim')
+      call dein#add('roxma/nvim-yarp')
+      call dein#add('roxma/vim-hug-neovim-rpc')
+    endif
     call s:dein_load_yaml(s:plugin_config)
     if filereadable(g:user_plugin_config)
       if s:check_file_notnull(g:user_plugin_config)
