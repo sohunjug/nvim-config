@@ -162,21 +162,21 @@ endfunction
 
 command! -nargs=1 EditPluginSetting call s:edit_plugin_setting(<q-args>)
 
-if !exists('s:config_dir')
-  let s:config_dir = finddir('vim-theme', $VIMCONFIG)
+if !exists('s:theme_dir')
+  let s:theme_dir = finddir('vim-theme', $VIMCONFIG)
 endif
-if s:config_dir != '' || &runtimepath !~ '/vim-theme'
-  if s:config_dir == '' && &runtimepath !~ '/vim-theme'
-    let s:config_dir = expand(g:plugin_path) . '/repos/github.com/sohunjug/vim-theme'
-    if !isdirectory(s:config_dir)
+if s:theme_dir != '' || &runtimepath !~ '/vim-theme'
+  if s:theme_dir == '' && &runtimepath !~ '/vim-theme'
+    let s:theme_dir = expand(g:plugin_path) . '/repos/github.com/sohunjug/vim-theme'
+    if !isdirectory(s:theme_dir)
       echomsg 'Download sohunjug vim config wait a moment'
-      execute '!git clone --depth=1 https://github.com/sohunjug/vim-theme' s:config_dir
+      execute '!git clone --depth=1 https://github.com/sohunjug/vim-theme' s:theme_dir
     endif
   endif
-  execute 'set runtimepath^=' . substitute(fnamemodify(s:config_dir, ':p'), '/$', '', '')
+  execute 'set runtimepath^=' . substitute(fnamemodify(s:theme_dir, ':p'), '/$', '', '')
 endif
 
-execute 'source' fnameescape(resolve(expand(s:config_dir . '/autoload/init.vim')))
+execute 'source' fnameescape(resolve(expand(s:theme_dir . '/autoload/init.vim')))
 
 let s:coc_setting = expand($VIMCONFIG . "/coc-settings.json")
 if !filereadable(s:coc_setting)
