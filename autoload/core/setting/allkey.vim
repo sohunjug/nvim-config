@@ -34,6 +34,18 @@ function! s:my_denite_file_rec_goroot() abort
   call denite#start([{'name': 'file/rec', 'args': [goroot]}], {'input': '.go'})
 endfunction
 
+if dein#tap('Neoformat')
+  nnoremap <leader>bf     :Neoformat<CR>
+endif
+
+if dein#tap('vim-session')
+  nnoremap <leader>so :OpenSession<Space>
+  nnoremap <leader>ss :SaveSession<Space>
+  nmap <leader>sl :SessionList<CR>
+  nmap <leader>sa :SSave<CR>
+  nnoremap <leader>sc :CloseSession<CR>
+endif
+
 if dein#tap('coc.nvim')
   " Using CocList
   " Show all diagnostics
@@ -294,6 +306,13 @@ if dein#tap('vim-textobj-multiblock')
   omap <silent> ib <Plug>(textobj-multiblock-i)
   xmap <silent> ab <Plug>(textobj-multiblock-a)
   xmap <silent> ib <Plug>(textobj-multiblock-i)
+endif
+
+if dein#tap('LeaderF')
+  noremap <leader>pf :LeaderfMru<cr>
+  noremap <leader>pp :LeaderfFunction!<cr>
+  noremap <leader>pb :LeaderfBuffer<cr>
+  noremap <leader>pt :LeaderfTag<cr>
 endif
 
 

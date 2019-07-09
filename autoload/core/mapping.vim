@@ -40,27 +40,44 @@ else
   nnoremap <leader>fvr :source ~/.vimrc<CR>
   nnoremap <leader>fve :e ~/.vimrc<CR>
 endif
+nnoremap <leader>. :lcd %:p:h<CR>
 "delete buffer
-nnoremap <leader>bd :bd<CR>
+nnoremap <silent> <leader>bl :Buffers<CR>
+nmap <leader>y :History:<CR>
 nnoremap <C-x>  :bd<CR>
+nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bo :BOnly<CR>
 
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
 "switch windw
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
+"" Split
+noremap <Leader>ws :<C-u>split<CR>
+noremap <Leader>wv :<C-u>vsplit<CR>
 "smart move
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+nnoremap <localleader>sr :set invrelativenumber<CR>
+nnoremap <localleader>sp :set nopaste! nopaste?<CR>
+nnoremap <silent> <localleader>sh :nohl<cr>
+nnoremap <localleader>sf :set nofoldenable! nofoldenable?<CR>
+" toggleWrap
+nnoremap <localleader>sw :set nowrap! nowrap?<CR>
 "tabline operation
 noremap <leader>bn :tabnew<cr>
 
 "yank to end
 nnoremap Y y$
+
+nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 
 " settings for resize splitted window
 nmap <C-w>[ :vertical resize -3<CR>

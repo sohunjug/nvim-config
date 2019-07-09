@@ -32,12 +32,12 @@ let g:which_key_map = {
             \ },
       \ 'm' : 'OpenMundo' ,
       \ 'w' : 'Save',
-      \ ';' : 'CommenterComment',
+      \ ';' : 'Comment',
       \ 'p' : {
             \ 'name' : '+Project',
             \ 'e' : 'EditPluginsConfig',
             \ },
-      \ '<leader>' : {
+      \ 'leader' : {
             \ 'name' : '+Easymotion',
             \ '/' : 'Easymotion-sn',
             \ 'w' : 'Easymotion-w',

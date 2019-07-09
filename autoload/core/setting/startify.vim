@@ -24,18 +24,19 @@ function! s:center(lines) abort
   return centered_lines
 endfunction
 
+let g:startify_session_dir = expand(g:plugin_path . "/sessions")
 let g:startify_custom_header = s:header
 let g:startify_custom_footer = s:footer
 let g:startify_files_number = 15
 let g:startify_session_number = 15
 let g:startify_list_order = [
-    \  ['   最近项目:'],
+    \  ['       最近项目:'],
     \  'sessions',
-    \  ['   最近文件:'],
+    \  ['       最近文件:'],
     \  'files',
-    \  ['   快捷命令:'],
+    \  ['       快捷命令:'],
     \  'commands',
-    \  ['   常用书签:'],
+    \  ['       常用书签:'],
     \  'bookmarks',
     \ ]
 let g:startify_commands = [

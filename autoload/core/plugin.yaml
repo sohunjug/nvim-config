@@ -10,7 +10,31 @@
 - repo: wsdjeg/dein-ui.vim
 - repo: honza/vim-snippets
 
+- repo: Yggdroot/LeaderF
+  build: ./install.sh
+  on_cmd:
+    [
+      LeaderfFile,
+      LeaderfMru,
+      LeaderfMruCwd,
+      LeaderfBufferAll,
+      LeaderfBufTag,
+      LeaderfFunctionAll,
+      LeaderfLine,
+    ]
+  hook_source: source $PLUGPATH/leaderf.vim
+
 #}}}
+#
+- repo: xolox/vim-session
+  on_cmd: Whichkey
+  hook_source: source $PLUGPATH/session.vim
+
+- repo: vim-scripts/a.vim
+  on_ft: [c, cpp]
+
+- repo: octol/vim-cpp-enhanced-highlight
+  on_ft: [c, cpp]
 
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
@@ -51,6 +75,9 @@
   if: executable('ctags')
   on_path: .*
   hook_source: source $PLUGPATH/vim-gutentags.vim
+
+- repo: skywind3000/gutentags_plus
+  depends: vim-gutentags
 
 - repo: junegunn/goyo.vim
   on_cmd: Goyo
@@ -148,12 +175,24 @@
   on_path: .*
   hook_source: let g:rooter_patterns = ['.vimrc', '.ycm_extra_conf.py', 'compile_commands.json', '.root', 'package.json', '.git/','go.mod']
 
+- repo: mileszs/ack.vim
+  hook_source: |
+    if executable('ag')
+      let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+    elseif executable('ack-grep')
+      let g:ackprg = 'ack-grep -H --nocolor --nogroup --column'
+    endif
 # }}}
+
+- repo: Shougo/vimproc.vim
+  build: make
 
 # File manager{{{
 - repo: Shougo/defx.nvim
   on_cmd: Defx
-  hook_source: source $PLUGPATH/defx.vim
+  hook_source: |
+    UpdateRemotePlugins
+    source $PLUGPATH/defx.vim
 
 - repo: kristijanhusak/defx-git
   on_cmd: Defx
@@ -181,6 +220,8 @@
 # Git Plugins{{{
 - repo: tpope/vim-fugitive
   on_path: .*
+- repo: tpope/vim-rhubarb
+  on_path: .*
 
 - repo: chemzqm/vim-easygit
   on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
@@ -203,6 +244,10 @@
 
 - repo: Vimjas/vim-python-pep8-indent
   on_ft: python
+- repo: davidhalter/jedi-vim
+  on_ft: python
+- repo: raimon49/requirements.txt.vim
+  on_ft: requirements
 - repo: tmhedberg/SimpylFold
   on_ft: python
 - repo: vim-scripts/python_match.vim
@@ -225,9 +270,19 @@
   on_ft: json
   hook_add: let g:vim_json_syntax_conceal = 0
 
+- repo: maksimr/vim-jsbeautify
+  on_ft: [jsx, javascript, javascript.jsx]
+
 - repo: fatih/vim-go
   on_ft: go
   hook_source: source $PLUGPATH/vim-go.vim
+
+- repo: xolox/vim-misc
+
+- repo: posva/vim-vue
+  on_ft: [vue, jsx, javascript, javascript.jsx]
+- repo: leafOfTree/vim-vue-plugin
+  on_ft: [vue, jsx, javascript, javascript.jsx]
 
 - repo: tpope/vim-markdown
   on_ft: markdown
