@@ -10,7 +10,9 @@ let g:plugin_path = expand(g:plugin_path)
 
 let $PLUGPATH = fnamemodify(expand('<sfile>'), ':h').'/setting'
 
-let s:plugin_config = fnamemodify(expand('<sfile>'), ':h').'/plugin.yaml'
+if !exists('s:plugin_config')
+  let s:plugin_config = fnamemodify(expand('<sfile>'), ':h').'/plugin.yaml'
+endif
 if !exists('g:user_plugins_file')
   let g:user_plugin_config = g:plugin_path . '/local_plugin.yaml'
 endif
@@ -31,11 +33,13 @@ let g:dein#install_process_timeout = 120
 let g:dein#auto_recache = 1
 
 augroup AutoCmd
-	autocmd!
-	autocmd CursorHold *? syntax sync minlines=300
+  autocmd!
+  autocmd CursorHold *? syntax sync minlines=300
 augroup END
 
-let s:dein_dir = finddir('dein.vim', '.;')
+if !exists('s:dein_dir')
+  let s:dein_dir = finddir('dein.vim', g:plugin_path)
+endif
 if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
     let s:dein_dir = expand(g:plugin_path . '/repos/github.com/Shougo/dein.vim')
@@ -47,7 +51,9 @@ if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
   execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
 
-let s:dein_ui = finddir('dein-ui.vim', '.;')
+if !exists('s:dein_ui')
+  let s:dein_ui = finddir('dein-ui.vim', g:plugin_path)
+endif
 if s:dein_ui != '' || &runtimepath !~ '/dein-ui.vim'
   if s:dein_ui == '' && &runtimepath !~ '/dein-ui.vim'
     let s:dein_ui = expand(g:plugin_path . '/repos/github.com/Shougo/dein-ui.vim')

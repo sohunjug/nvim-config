@@ -1,7 +1,9 @@
 let g:which_key_map =  {}
 let g:which_key_map = {
       \ 'name' : 'sohunjug-VimRoot ' ,
+      \ '-' : 'ChooseWin' ,
       \ 'b' : {
+            \ 'name' : '+Buffers',
             \ '1' : 'Buffer-1'      ,
             \ '2' : 'Buffer-2'      ,
             \ '3' : 'Buffer-3'      ,
@@ -15,19 +17,13 @@ let g:which_key_map = {
             \ },
       \ 'c' : {
             \ 'name' : '+NERDCommenter',
-            \ 'c' : 'Comment',
+            \ 'c' : 'CommentToggle',
             \ },
-      \ 'a' : {
-            \ 'name' : '+CocCodeAction',
-            \ 'c' : 'CodeAction',
-            \ },
-      \ 'e' : 'Defx' ,
-      \ '-' : 'ChooseWin' ,
       \ 'd' : 'Dash' ,
       \ 'G' : 'Goyo' ,
       \ 'z' : {
             \ 'name' : '+FzfCommand',
-            \ 'b'    : 'Bufferlist',
+            \ 'b' : 'Bufferlist',
             \ 'f' : 'FindFile',
             \ 'r' : 'RgSearch',
             \ 'c' : 'ColorChange',
@@ -36,19 +32,20 @@ let g:which_key_map = {
             \ },
       \ 'm' : 'OpenMundo' ,
       \ 'w' : 'Save',
-      \ ';' : 'NERDCommenterComment',
+      \ ';' : 'CommenterComment',
       \ 'p' : {
             \ 'name' : '+Project',
             \ 'e' : 'EditPluginsConfig',
             \ },
-      \ 'SPC' : {
+      \ '<leader>' : {
             \ 'name' : '+Easymotion',
+            \ '/' : 'Easymotion-sn',
             \ 'w' : 'Easymotion-w',
             \ 'b' : 'Easymotion-b',
             \ 'f' : 'Easymotion-f',
             \ },
       \ 'o'    : {
-            \ 'name' : '+CocList' ,
+            \ 'name' : '+Coc' ,
             \ 'a'    : 'CocCodeActionSelected',
             \ 'd'    : 'CocDiagnostics',
             \ 'c'    : 'CocCommands',
@@ -56,6 +53,7 @@ let g:which_key_map = {
             \ 'q'    : 'CocFixCurrent',
             \ 'j'    : 'CocNext',
             \ 'k'    : 'CocPrev',
+            \ 'l'    : 'CodeAction',
             \ 'o'    : 'CocOutLine',
             \ 'r'    : 'CocResume',
             \ 'n'    : 'CocRename',

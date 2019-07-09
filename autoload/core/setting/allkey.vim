@@ -64,7 +64,7 @@ if dein#tap('coc.nvim')
   xmap <leader>oa  <Plug>(coc-codeaction-selected)
   nmap <leader>oa  <Plug>(coc-codeaction-selected)
   " Remap for do codeAction of current line
-  nmap <leader>ac  <Plug>(coc-codeaction)
+  nmap <leader>ol  <Plug>(coc-codeaction)
   " Fix autofix problem of current line
   nmap <leader>oq  <Plug>(coc-fix-current)
   " Remap keys for gotos
@@ -186,13 +186,13 @@ endif
 
 if dein#tap('defx.nvim')
   nnoremap <silent> <leader>ft :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-  nnoremap <silent> <leader>fd :<C-u>Defx -resume -split=floating -quit -buffer-name=tab`tabpagenr()`<CR>
+  nnoremap <silent> <leader>fd :<C-u>Defx -resume -split=floating -winwidth=100 -buffer-name=tab`tabpagenr()`<CR>
   nnoremap <silent> <localleader>e :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
   nnoremap <silent> <localleader>a :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
 endif
 
 if dein#tap('nerdcommenter')
-  nmap <silent><leader>; <Plug>NERDCommenterToggle
+  nmap <silent><leader>; <Plug>CommenterToggle
 endif
 
 if dein#tap('vim-startify')
@@ -221,7 +221,8 @@ endif
 
 if dein#tap('vista.vim')
   nnoremap <silent><localleader>v :Vista!!<CR>
-  nnoremap <silent><leader>tv :Vista finder coc<CR>
+  nnoremap <silent><leader>tv :Vista!!<CR>
+  nnoremap <silent><leader>tc :Vista finder coc<CR>
 endif
 
 if dein#tap('tagbar')

@@ -3,7 +3,7 @@ call defx#custom#option('_', {
   \ 'columns': 'indent:git:filename',
   \ 'winwidth': 30,
   \ 'split': 'vertical',
-  \ 'direction': 'topleft',
+  \ 'direction': 'botright',
   \ 'show_ignored_files': 0,
   \ })
 

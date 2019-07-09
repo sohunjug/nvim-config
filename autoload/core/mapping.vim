@@ -32,6 +32,14 @@ nnoremap ]b :bp<CR>
 nnoremap [b :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bn<CR>
+
+if has('nvim')
+  nnoremap <leader>fvr :source ~/.config/nvim/init.vim<CR>
+  nnoremap <leader>fve :e ~/.config/nvim/init.vim<CR>
+else
+  nnoremap <leader>fvr :source ~/.vimrc<CR>
+  nnoremap <leader>fve :e ~/.vimrc<CR>
+endif
 "delete buffer
 nnoremap <leader>bd :bd<CR>
 nnoremap <C-x>  :bd<CR>
