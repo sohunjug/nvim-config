@@ -186,7 +186,7 @@ endif
 
 if dein#tap('defx.nvim')
   nnoremap <silent> <leader>ft :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-  nnoremap <silent> <leader>fd :<C-u>Defx -resume -floating -quit -buffer-name=tab`tabpagenr()`<CR>
+  nnoremap <silent> <leader>fd :<C-u>Defx -resume -split=floating -quit -buffer-name=tab`tabpagenr()`<CR>
   nnoremap <silent> <localleader>e :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
   nnoremap <silent> <localleader>a :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
 endif
@@ -235,6 +235,8 @@ if dein#tap('ale')
 endif
 
 if dein#tap('vim-easymotion')
+  nmap f <Plug>(easymotion-f)
+  nmap <leader><leader>/ <Plug>(easymotion-sn)
   nmap <leader><leader>w <Plug>(easymotion-w)
   nmap <leader><leader>f <Plug>(easymotion-f)
   nmap <leader><leader>b <Plug>(easymotion-b)

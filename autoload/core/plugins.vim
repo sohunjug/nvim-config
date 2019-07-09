@@ -75,8 +75,6 @@ let g:loaded_tutor_mode_plugin = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_zipPlugin         = 1
 
-set runtimepath
-
 function! s:dein_load_yaml(filename) abort
   " Fallback to use python3 and PyYAML
   python3 << endpython
@@ -104,11 +102,6 @@ set packpath=
 if has('gui_running')
    set guioptions=Mc
 endif
-
-augroup AutoCmd
-	autocmd!
-	autocmd CursorHold *? syntax sync minlines=300
-augroup END
 
 if dein#load_state(g:plugin_path)
   call dein#begin(g:plugin_path, [expand('<sfile>'), s:plugin_config])

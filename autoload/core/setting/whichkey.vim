@@ -21,7 +21,7 @@ let g:which_key_map = {
             \ 'name' : '+CocCodeAction',
             \ 'c' : 'CodeAction',
             \ },
-      \ 'e' : 'OpenNerdtree' ,
+      \ 'e' : 'Defx' ,
       \ '-' : 'ChooseWin' ,
       \ 'd' : 'Dash' ,
       \ 'G' : 'Goyo' ,

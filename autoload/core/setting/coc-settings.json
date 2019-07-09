@@ -1,13 +1,13 @@
 {
-  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerAfterInsertEnter": true,
   "suggest.timeout": 500,
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "suggest.detailField": "preview",
   "suggest.snippetIndicator": "🌟",
   "suggest.triggerCompletionWait": 300,
   "suggest.echodocSupport": true,
   "suggest.enablePreview": true,
-  "suggest.minTriggerInputLength": 4,
+  "suggest.minTriggerInputLength": 2,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",

@@ -2,7 +2,7 @@
 # see http://genkisugimoto.com/blog/manage-vim-plugins-via-yaml/
 
 # StartUp Plugins{{{
-- repo: Shougo/dein.vim
+#- repo: Shougo/dein.vim
 - repo: sohunjug/vim-theme
   on_event: VimEnter
 #- repo: wsdjeg/dein-ui.vim
@@ -13,8 +13,9 @@
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
   merge: 0
-  rev: release
-  hook_add: source  $PLUGPATH/coc.vim
+  hook_add: call coc#util#install()
+  hook_source: source $PLUGPATH/coc.vim
+# rev: release
 # }}}
 
 # Lazy Loading
@@ -52,8 +53,8 @@
   on_cmd: Goyo
   hook_source: source  $PLUGPATH/goyo.vim
 
-- repo: junegunn/Limelight.vim
-  on_cmd: Limelight
+#- repo: junegunn/Limelight.vim
+#  on_cmd: Limelight
 
 - repo: mhinz/vim-startify
   on_cmd: Startify
@@ -154,9 +155,9 @@
   on_source: defx.nvim
   hook_source: source  $PLUGPATH/defx-git.vim
 
-- repo: kristijanhusak/defx-icons
-  on_cmd: Defx
-  on_source: defx.nvim
+# - repo: kristijanhusak/defx-icons
+#   on_cmd: Defx
+#   on_source: defx.nvim
 
 # }}}
 
