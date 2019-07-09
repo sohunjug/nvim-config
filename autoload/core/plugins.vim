@@ -45,7 +45,7 @@ if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
     let s:dein_dir = expand(g:plugin_path . '/repos/github.com/Shougo/dein.vim')
     if !isdirectory(s:dein_dir)
       echomsg 'Download dein plugin management wait a moment'
-      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+      execute '!git clone --depth=1 https://github.com/Shougo/dein.vim' s:dein_dir
     endif
   endif
   execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_dir, ':p') , '/$', '', '')
@@ -59,7 +59,7 @@ if s:dein_ui != '' || &runtimepath !~ '/dein-ui.vim'
     let s:dein_ui = expand(g:plugin_path . '/repos/github.com/Shougo/dein-ui.vim')
     if !isdirectory(s:dein_ui)
       echomsg 'Download dein ui plugin management wait a moment'
-      execute '!git clone https://github.com/wsdjeg/dein-ui.vim' s:dein_ui
+      execute '!git clone --depth=1 https://github.com/wsdjeg/dein-ui.vim' s:dein_ui
     endif
   endif
   execute 'set runtimepath^=' . substitute(fnamemodify(s:dein_ui, ':p') , '/$', '', '')

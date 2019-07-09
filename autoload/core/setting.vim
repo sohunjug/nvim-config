@@ -61,7 +61,7 @@ set hidden
 set shortmess=aFc
 set signcolumn=yes
 set completefunc=emoji#complete
-set completeopt =longest,menu
+set completeopt=longest,menu
 set completeopt-=preview
 set list
 set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
@@ -89,8 +89,8 @@ execute 'autocmd AutoCmd BufWritePost '.$VIMPATH.'/core/*,vimrc nested' . ' sour
 
 augroup AutoCmd
   autocmd Syntax * if 5000 < line('$') | syntax sync minlines=200 | endif
-  autocmd WinEnter,InsertLeave * set cursorline
-  autocmd WinLeave,InsertEnter * set nocursorline
+  "autocmd WinEnter,InsertLeave * set cursorline
+  "autocmd WinLeave,InsertEnter * set nocursorline
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
   autocmd BufWritePre *.js,*.jsx,*.less,*.css,*.html Neoformat
   " HTML (.gohtml and .tpl for server side)
