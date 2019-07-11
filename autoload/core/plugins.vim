@@ -111,8 +111,9 @@ endfunction
 set packpath=
 
 if has('gui_running')
-   set guifont=Monaco:h11
-   set guifontwide=Hack\ Regular\ Nerd\ Font\ Complete:h11
+   " set guifont=Monaco:h11
+   " set guifontwide=Hack\ Regular\ Nerd\ Font\ Complete:h11
+   set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h11
    set guioptions+=c
    set linespace=2
 endif
