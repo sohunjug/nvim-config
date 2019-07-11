@@ -68,12 +68,13 @@
   hook_source: source $PLUGPATH/vim-choosewin.vim
 
 - repo: ludovicchabant/vim-gutentags
+  merged: 0
   if: executable('ctags')
   on_path: .*
-  hook_source: source $PLUGPATH/vim-gutentags.vim
 
 - repo: skywind3000/gutentags_plus
   depends: vim-gutentags
+  hook_source: source $PLUGPATH/vim-gutentags.vim
 
 - repo: junegunn/goyo.vim
   on_cmd: Goyo
