@@ -115,7 +115,7 @@ if has('gui_running')
    " set guifontwide=Hack\ Regular\ Nerd\ Font\ Complete:h11
    set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h11
    set guioptions+=c
-   set linespace=2
+   set linespace=1
 endif
 
 if dein#load_state(g:plugin_path)
