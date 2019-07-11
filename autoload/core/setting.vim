@@ -78,6 +78,10 @@ set completeopt-=preview
 set list
 set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
 
+set sessionoptions-=buffers
+set sessionoptions-=options
+set sessionoptions-=tabpages
+set sessionoptions-=help
 set ignorecase      " Search ignoring case
 set smartcase       " Keep case when searching with *
 set infercase       " Adjust case in insert completion mode

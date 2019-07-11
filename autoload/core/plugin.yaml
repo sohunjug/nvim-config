@@ -69,11 +69,13 @@
 
 - repo: ludovicchabant/vim-gutentags
   merged: 0
-  if: executable('ctags')
   on_path: .*
+  if: executable('ctags')
 
 - repo: skywind3000/gutentags_plus
   depends: vim-gutentags
+  lazy: 1
+  on_path: .*
   hook_source: source $PLUGPATH/vim-gutentags.vim
 
 - repo: junegunn/goyo.vim
@@ -186,6 +188,7 @@
 
 # File manager{{{
 - repo: Shougo/defx.nvim
+  on_cmd: Defx
   on_path: .*
   hook_source: |
     if has('nvim')
