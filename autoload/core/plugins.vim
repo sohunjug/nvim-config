@@ -111,8 +111,10 @@ endfunction
 set packpath=
 
 if has('gui_running')
-   set guioptions+=Mc
    set guifont=Monaco:h11
+   set guifontwide='Hack\ Regular\ Nerd\ Font\ Complete:h11'
+   set guioptions+=Mc
+   set linespace=2
 endif
 
 if dein#load_state(g:plugin_path)
