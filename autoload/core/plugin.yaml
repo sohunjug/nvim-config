@@ -35,10 +35,10 @@
 # Core Plugins{{{
 - repo: neoclide/coc.nvim
   merge: 0
+  rev: release
   build: yarn install --frozen-lockfile
   hook_source: source $PLUGPATH/coc.vim
 # build: call coc#util#install()
-# rev: release
 # }}}
 
 # Lazy Loading
@@ -274,7 +274,7 @@
   hook_source: source $PLUGPATH/vim-go.vim
 
 - repo: xolox/vim-misc
-  on_event: VimEnter
+  on_path: .*
 
 - repo: posva/vim-vue
   on_ft: [vue, jsx, javascript, javascript.jsx]
