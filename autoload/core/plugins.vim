@@ -66,7 +66,7 @@ if s:dein_ui != '' || &runtimepath !~ '/dein-ui.vim'
 endif
 
 let g:spacevim_plugin_manager = 'dein'
-let g:spacevim_plugin_manager_processes = 16
+let g:spacevim_plugin_manager_processes = 36
 
 let g:loaded_2html_plugin      = 1
 let g:loaded_logiPat           = 1

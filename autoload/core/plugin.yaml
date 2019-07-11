@@ -187,7 +187,9 @@
 - repo: Shougo/defx.nvim
   on_path: .*
   hook_source: |
-    UpdateRemotePlugins
+    if has('nvim')
+      UpdateRemotePlugins
+    endif
     source $PLUGPATH/defx.vim
 
 - repo: kristijanhusak/defx-git
