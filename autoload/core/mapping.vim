@@ -33,6 +33,10 @@ nnoremap [b :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bn<CR>
 
+nnoremap <leader>ss :SSave<CR>
+nnoremap <leader>sd :SDelete<CR>
+nnoremap <leader>sl :SLoad<CR>
+nnoremap <leader>sc :SClose<CR>
 if has('nvim')
   nnoremap <leader>fvr :source ~/.config/nvim/init.vim<CR>
   nnoremap <leader>fve :e ~/.config/nvim/init.vim<CR>
