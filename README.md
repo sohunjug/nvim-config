@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to sohunjug-vim-config 👋</h1>
+<h1 align="center">Welcome to sohunjug-nvim-config 👋</h1>
 <p>
   <a href="https://twitter.com/sohunjug">
     <img alt="Twitter: sohunjug" src="https://img.shields.io/twitter/follow/sohunjug.svg?style=social" target="_blank" />
@@ -32,14 +32,14 @@ if !isdirectory(expand(g:plugin_path))
 endif
 
 if !exists('s:config_dir')
-  let s:config_dir = finddir('vim-config', $VIMCONFIG)
+  let s:config_dir = finddir('nvim-config', $VIMCONFIG)
 endif
 if s:config_dir != '' || &runtimepath !~ '/vim-config'
   if s:config_dir == '' && &runtimepath !~ '/vim-config'
-    let s:config_dir = expand(g:plugin_path) . '/repos/github.com/sohunjug/vim-config'
+    let s:config_dir = expand(g:plugin_path) . '/repos/github.com/sohunjug/nvim-config'
     if !isdirectory(s:config_dir)
       echomsg 'Download sohunjug vim config wait a moment'
-      execute '!git clone https://github.com/sohunjug/vim-config' s:config_dir
+      execute '!git clone https://github.com/sohunjug/nvim-config' s:config_dir
     endif
   endif
   execute 'set runtimepath^=' . substitute(fnamemodify(s:config_dir, ':p'), '/$', '', '')
@@ -66,6 +66,6 @@ Give a ⭐️ if this project helped you!
 
 ## Thanks
 
-[ThinkVim](https://github.com/taigacute/ThinkVim)
-[SpaceVim](https://github.com/SpaceVim/SpaceVim)
+- [ThinkVim](https://github.com/taigacute/ThinkVim)
+- [SpaceVim](https://github.com/SpaceVim/SpaceVim)
 
