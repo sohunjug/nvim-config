@@ -34,7 +34,7 @@ endif
 if has('clipboard')
   set clipboard& clipboard+=unnamedplus
 endif
-set history=2000
+set history=200
 set number
 set timeout ttimeout
 set cmdheight=1         " Height of the command line
@@ -44,10 +44,14 @@ set updatetime=100
 set undofile
 set undodir=/tmp/undo
 set relativenumber
-set backspace=2
 set backspace=indent,eol,start
 " Tabs and Indents {{{
 " ----------------
+set ttyfast
+set lazyredraw
+set synmaxcol=128
+syntax sync minlines=128
+set re=1
 set expandtab
 set tabstop=2
 set softtabstop=2

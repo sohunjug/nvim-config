@@ -26,10 +26,6 @@
 
 #}}}
 #
-- repo: xolox/vim-session
-  on_event: VimEnter
-  hook_source: source $PLUGPATH/session.vim
-
 - repo: vim-scripts/a.vim
   on_ft: [c, cpp]
 
@@ -278,6 +274,7 @@
   hook_source: source $PLUGPATH/vim-go.vim
 
 - repo: xolox/vim-misc
+  on_event: VimEnter
 
 - repo: posva/vim-vue
   on_ft: [vue, jsx, javascript, javascript.jsx]
