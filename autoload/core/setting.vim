@@ -17,6 +17,13 @@ set fillchars+=vert:\|  " add a bar for vertical splits
 if has('nvim')
   set fcs=eob:\           " hide ~
 endif
+if has('python3')
+  set pyxversion=3
+  let g:python_version = 3
+else
+  set pyxversion=2
+  let g:python_version = 2
+endif
 if has('mac')
   let g:clipboard = {
     \   'name': 'macOS-clipboard',
