@@ -72,7 +72,7 @@ nnoremap <localleader>sf :set nofoldenable! nofoldenable?<CR>
 " toggleWrap
 nnoremap <localleader>sw :set nowrap! nowrap?<CR>
 "tabline operation
-noremap <leader>bn :tabnew<cr>
+noremap <leader>bt :tabnew<cr>
 
 "yank to end
 nnoremap Y y$
