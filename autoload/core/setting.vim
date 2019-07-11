@@ -5,6 +5,7 @@ set autowrite
 set confirm
 set splitbelow
 set bsdir=buffer
+set mousemodel=popup
 if has('vim_starting')
   set encoding=UTF-8
   scriptencoding UTF-8
@@ -92,7 +93,7 @@ endif
 execute 'autocmd AutoCmd BufWritePost '.$VIMPATH.'/core/*,vimrc nested' . ' source $MYVIMRC | redraw | silent doautocmd ColorScheme'
 
 augroup AutoCmd
-  autocmd Syntax * if 5000 < line('$') | syntax sync minlines=200 | endif
+  autocmd Syntax * if 5000 < line('$') | syntax sync minlines=128 | endif
   "autocmd WinEnter,InsertLeave * set cursorline
   "autocmd WinLeave,InsertEnter * set nocursorline
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
