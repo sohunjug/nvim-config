@@ -28,8 +28,7 @@
   on_map: { nvx: <Plug> }
   hook_source: source $PLUGPATH/nerdcommenter.vim
 
-  #}}}
-  #
+#}}}
 - repo: vim-scripts/a.vim
   on_map: { nvxo: <Plug> }
   on_ft: [c, cpp]
@@ -43,19 +42,19 @@
 - repo: octol/vim-cpp-enhanced-highlight
   on_ft: [c, cpp]
 
-  # Core Plugins{{{
+# Core Plugins{{{
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
   build: call coc#util#install()
   #build: yarn install --frozen-lockfile
   hook_source: source $PLUGPATH/coc.vim
-  # }}}
+# }}}
 
-  # Lazy Loading
-  # ==========================================
+# Lazy Loading
+# ==========================================
 
-  # Denite{{{
+# Denite{{{
 - repo: Shougo/denite.nvim
   on_cmd: Denite
   depends: vim-devicons
@@ -66,7 +65,7 @@
 - repo: chemzqm/denite-git
   on_source: denite.nvim
 
-  # Interface{{{
+# Interface{{{
 - repo: ryanoasis/vim-devicons
   on_event: VimEnter
   hook_add: let g:webdevicons_enable_denite = 1
@@ -156,10 +155,10 @@
   hook_add: |
     let g:quickrun_config = {
       \   "_" : {
-        \       "outputter" : "message",
-        \   },
-        \ }
-        let g:quickrun_no_default_key_mappings = 1
+      \       "outputter" : "message",
+      \   },
+      \ }
+    let g:quickrun_no_default_key_mappings = 1
 
 - repo: simnalamburt/vim-mundo
   on_map: { n: <Plug> }
@@ -196,12 +195,13 @@
     elseif executable('ack-grep')
     let g:ackprg = 'ack-grep -H --nocolor --nogroup --column'
     endif
-    # }}}
+
+# }}}
 
 - repo: Shougo/vimproc.vim
   build: make
 
-  # File manager{{{
+# File manager{{{
 - repo: Shougo/defx.nvim
   on_cmd: Defx
   on_path: .*
@@ -220,9 +220,9 @@
   on_cmd: Defx
   on_source: defx.nvim
 
-  # }}}
+# }}}
 
-  # Search Plugins{{{
+# Search Plugins{{{
 - repo: junegunn/fzf
   build: "./install --all"
   merged: 0
@@ -232,9 +232,9 @@
   on_cmd: [Colors, Rg, Buffers]
   hook_add: source $PLUGPATH/fzf.vim
 
-  # }}}
+# }}}
 
-  # Git Plugins{{{
+# Git Plugins{{{
 - repo: tpope/vim-fugitive
   on_path: .*
 - repo: tpope/vim-rhubarb
@@ -244,15 +244,14 @@
   on_cmd: [Gcd, Glcd, commit, Gblame, Gstatus, Gdiff, Gbrowse, Gstatus, Gpush]
   hook_source: let g:easygit_enable_command = 1
 
+# use coc-git instead of vim-gitgutter
+# - repo: airblade/vim-gitgutter
+#   on_path: .*
+#   hook_source: source ~/.config/nvim/vim-gitgutter.vim
 
-  # use coc-git instead of vim-gitgutter
-  # - repo: airblade/vim-gitgutter
-  #   on_path: .*
-  #   hook_source: source ~/.config/nvim/vim-gitgutter.vim
+# }}}
 
-  # }}}
-
-  # Language{{{
+# Language{{{
 - repo: honza/dockerfile.vim
   on_ft: Dockerfile
 
@@ -317,9 +316,9 @@
       \ 'go',
       \]
 
-      # }}}
+# }}}
 
-      # Coding{{{
+# Coding{{{
 - repo: tyru/caw.vim
   on_map: { nx: <Plug> }
 
@@ -350,9 +349,9 @@
     let g:user_emmet_leader_key='<C-g>'
     let g:user_emmet_settings = {
       \  'javascript.jsx' : {
-        \      'extends' : 'jsx',
-        \  },
-        \}
+      \      'extends' : 'jsx',
+      \  },
+      \}
 
 - repo: luochen1990/rainbow
   on_ft: [python, javascript, jsx, javascript.jsx, html, css, go, vim, toml]
@@ -364,12 +363,12 @@
     call echodoc#enable()
     let g:echodoc#type = "virtual"
 
-    # - repo: w0rp/ale
-    #   hook_add: source ~/.config/nvim/vim-ale.vim
+# - repo: w0rp/ale
+#   hook_add: source ~/.config/nvim/vim-ale.vim
 
-    # }}}
+# }}}
 
-    # TextObjectOperator{{{
+# TextObjectOperator{{{
 - repo: AndrewRadev/splitjoin.vim
   on_map: { n: <Plug>Splitjoin }
 - repo: terryma/vim-expand-region
@@ -395,15 +394,15 @@
   depends: vim-textobj-user
   on_map: { ox: <Plug> }
   hook_add: let g:textobj_multiblock_no_default_key_mappings = 1
-  # }}}
+# }}}
 
-  # CommentPLuins too old, or find much better plugins{{{
-  # - repo: rhysd/vim-operator-surround
-  #   depends: [vim-operator-user, vim-textobj-multiblock]
-  #   on_map:  { vnx : <Plug> }
-  # - repo: itchyny/lightline.vim
-  #   depends: vim-devicons
-  #   hook_add: source $PLUGPATH/lightline.vim
-  # - repo: mengelbrecht/lightline-bufferline
-  #   hook_add: source $PLUGPATH/lightline.vim
-  # }}}
+# CommentPLuins too old, or find much better plugins{{{
+# - repo: rhysd/vim-operator-surround
+#   depends: [vim-operator-user, vim-textobj-multiblock]
+#   on_map:  { vnx : <Plug> }
+# - repo: itchyny/lightline.vim
+#   depends: vim-devicons
+#   hook_add: source $PLUGPATH/lightline.vim
+# - repo: mengelbrecht/lightline-bufferline
+#   hook_add: source $PLUGPATH/lightline.vim
+# }}}
