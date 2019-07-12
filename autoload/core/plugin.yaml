@@ -105,7 +105,11 @@
   hook_source: source $PLUGPATH/startify.vim
   hook_post_source: |
     function! StartifyEntryFormat()
-      return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+      if exists('*WebDevIconsGetFileTypeSymbol')
+        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+      else
+        return '. entry_path'
+      endif
     endfunction
 
 - repo: mg979/vim-visual-multi

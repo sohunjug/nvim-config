@@ -236,7 +236,11 @@ autocmd  AutoCmd User CocDiagnosticChange
 
 
 function! LightLineFname()
-  let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
+  if exists('*WebDevIconsGetFileTypeSymbol')
+    let icon = (strlen(&filetype) ? ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft')
+  else
+    let icon = (strlen(&filetype) ? ' ' : 'no ft')
+  endif
   let filename = LightLineFilename()
   let ret = [filename,icon]
   if filename == ''
@@ -257,11 +261,19 @@ function! FileEncoding()
 endfunction
 
 function! LightLineFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  if exists('*WebDevIconsGetFileTypeSymbol')
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  else
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' : 'no ft') : ''
+  endif
 endfunction
 
 function! LightLineFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  if exists('*WebDevIconsGetFileFormatSymbol')
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  else
+    return winwidth(0) > 70 ? (&fileformat . ' ') : ''
+  endif
 endfunction
 
 let g:lightline#bufferline#show_number  = 2

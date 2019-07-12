@@ -68,7 +68,11 @@ function! Fzf_dev()
     let l:result = []
     for l:candidate in a:candidates
       let l:filename = fnamemodify(l:candidate, ':p:t')
-      let l:icon = WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
+      if exists('*WebDevIconsGetFileTypeSymbol')
+        let l:icon = WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
+      else
+        let l:icon = ''
+      endif
       call add(l:result, printf('%s %s', l:icon, l:candidate))
     endfor
 
