@@ -38,9 +38,9 @@
     nmap <leader>fa :A<CR>
   hook_post_source: |
     echom "hook_post_source"
-    inoremap <leader>is <Nop>
-    inoremap <leader>ih <Nop>
-    inoremap <leader>ihn <Nop>
+    inoremap <leader>is
+    inoremap <leader>ih
+    inoremap <leader>ihn
 
 - repo: octol/vim-cpp-enhanced-highlight
   on_ft: [c, cpp]
