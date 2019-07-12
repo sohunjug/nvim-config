@@ -91,13 +91,13 @@ function! s:dein_load_yaml(filename) abort
 python3 << endpython
   import vim, yaml
   with open(vim.eval('a:filename'), 'r') as f:
-  vim.vars['denite_plugins'] = yaml.safe_load(f.read())
+    vim.vars['denite_plugins'] = yaml.safe_load(f.read())
 endpython
 
-for plugin in g:denite_plugins
-  call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
-endfor
-unlet g:denite_plugins
+  for plugin in g:denite_plugins
+    call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
+  endfor
+  unlet g:denite_plugins
 endfunction
 
 function! s:check_file_notnull(filename)abort
