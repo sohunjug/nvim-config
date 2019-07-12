@@ -34,13 +34,11 @@
   on_map: { nvxo: <Plug> }
   on_ft: [c, cpp]
   hook_source: |
-    echom "hook_source"
     nmap <leader>fa :A<CR>
   hook_post_source: |
-    echom "hook_post_source"
-    inoremap <leader>is
-    inoremap <leader>ih
-    inoremap <leader>ihn
+    iunmap <leader>is
+    iunmap <leader>ih
+    iunmap <leader>ihn
 
 - repo: octol/vim-cpp-enhanced-highlight
   on_ft: [c, cpp]
