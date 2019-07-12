@@ -23,4 +23,6 @@ augroup END
 
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/core/mapping.vim'
 
-set term=xterm-256color
+if &term =~ 'screen'
+  set term=xterm-256color
+endif
