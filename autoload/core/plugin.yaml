@@ -31,7 +31,7 @@
 #}}}
 #
 - repo: vim-scripts/a.vim
-  on_map: { n: <> }
+  on_map: { nvxo: "" }
   on_ft: [c, cpp]
   hook_source: nmap <leader>fa :A<CR>
 
