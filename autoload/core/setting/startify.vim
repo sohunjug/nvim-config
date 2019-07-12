@@ -6,19 +6,19 @@ let g:startify_update_oldfiles     = 1
 let g:startify_session_persistence = 0
 
 let g:startify_skiplist = [
-    \ 'COMMIT_EDITMSG',
-    \ 'plugs/.*/doc',
-    \ '/Users/*/Library',
-    \ ]
+      \ 'COMMIT_EDITMSG',
+      \ 'plugs/.*/doc',
+      \ '/Users/*/Library',
+      \ ]
 
 let g:startify_padding_left = 15
 let s:header = [
-    \   '           +---------------------------------------------------------+',
-    \   '           |  Welcome to use sohunjug vim config                     |',
-    \   '           |                                                         |',
-    \   '           |  https://github.com/sohunjug/vim-config                 |',
-    \   '           +---------------------------------------------------------+',
-    \ ]
+      \   '           +---------------------------------------------------------+',
+      \   '           |  Welcome to use sohunjug vim config                     |',
+      \   '           |                                                         |',
+      \   '           |  https://github.com/sohunjug/vim-config                 |',
+      \   '           +---------------------------------------------------------+',
+      \ ]
 
 let s:footer = [
       \ '                   +-------------------------------------------+',
@@ -42,16 +42,16 @@ let g:startify_custom_footer = s:footer
 let g:startify_files_number = 15
 let g:startify_session_number = 15
 let g:startify_list_order = [
-    \  ['       最近项目:'],
-    \  'sessions',
-    \  ['       最近文件:'],
-    \  'files',
-    \  ['       快捷命令:'],
-    \  'commands',
-    \  ['       常用书签:'],
-    \  'bookmarks',
-    \ ]
+      \  ['       最近项目:'],
+      \  'sessions',
+      \  ['       最近文件:'],
+      \  'files',
+      \  ['       快捷命令:'],
+      \  'commands',
+      \  ['       常用书签:'],
+      \  'bookmarks',
+      \ ]
 let g:startify_commands = [
-    \  {'h': ['帮助', 'help howto']},
-    \  {'v': ['版本', 'version']}
-    \ ]
+      \  {'h': ['帮助', 'help howto']},
+      \  {'v': ['版本', 'version']}
+      \ ]

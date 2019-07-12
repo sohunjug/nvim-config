@@ -1,11 +1,11 @@
 " Defx
 call defx#custom#option('_', {
-  \ 'columns': 'indent:git:filename',
-  \ 'winwidth': 30,
-  \ 'split': 'vertical',
-  \ 'direction': 'botright',
-  \ 'show_ignored_files': 0,
-  \ })
+      \ 'columns': 'indent:git:filename',
+      \ 'winwidth': 30,
+      \ 'split': 'vertical',
+      \ 'direction': 'botright',
+      \ 'show_ignored_files': 0,
+      \ })
 
 " Close defx if it's the only buffer left in the window
 autocmd AutoCmd WinEnter * if &ft == 'defx' && winnr('$') == 1 | q | endif
@@ -43,7 +43,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr><nowait> p  defx#do_action('paste')
 
   nnoremap <silent><buffer><expr><nowait> <Space>
-    \ defx#do_action('toggle_select') . 'j'
+        \ defx#do_action('toggle_select') . 'j'
 
   nnoremap <silent><buffer><expr> '      defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> *      defx#do_action('toggle_select_all')
@@ -52,12 +52,12 @@ function! s:defx_my_settings() abort
 
   nnoremap <silent><buffer><expr> S  defx#do_action('toggle_sort', 'Time')
   nnoremap <silent><buffer><expr> C
-    \ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
+        \ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
 
   " Plugins
   nnoremap <silent><buffer><expr> <Tab> winnr('$') != 1 ?
-    \ ':<C-u>wincmd w<CR>' :
-    \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
+        \ ':<C-u>wincmd w<CR>' :
+        \ ':<C-u>Defx -buffer-name=temp -split=vertical<CR>'
 
   nnoremap <silent><buffer><expr>gl  defx#do_action('call', 'DefxTmuxExplorer')
   nnoremap <silent><buffer><expr>gp  defx#do_action('call', 'DefxDeniteGrep')

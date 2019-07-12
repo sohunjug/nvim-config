@@ -34,7 +34,7 @@ let g:dein#auto_recache = 1
 
 augroup AutoCmd
   autocmd!
-  autocmd CursorHold *? syntax sync minlines=300
+  autocmd CursorHold *? syntax sync minlines=200
 augroup END
 
 if !exists('s:dein_dir')
@@ -88,16 +88,16 @@ let g:loaded_zipPlugin         = 1
 
 function! s:dein_load_yaml(filename) abort
   " Fallback to use python3 and PyYAML
-  python3 << endpython
-import vim, yaml
-with open(vim.eval('a:filename'), 'r') as f:
+python3 << endpython
+  import vim, yaml
+  with open(vim.eval('a:filename'), 'r') as f:
   vim.vars['denite_plugins'] = yaml.safe_load(f.read())
 endpython
 
-  for plugin in g:denite_plugins
-    call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
-  endfor
-  unlet g:denite_plugins
+for plugin in g:denite_plugins
+  call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
+endfor
+unlet g:denite_plugins
 endfunction
 
 function! s:check_file_notnull(filename)abort
@@ -111,11 +111,11 @@ endfunction
 set packpath=
 
 if has('gui_running')
-   " set guifont=Monaco:h11
-   " set guifontwide=Hack\ Regular\ Nerd\ Font\ Complete:h11
-   set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h11
-   set guioptions+=c
-   set linespace=1
+  " set guifont=Monaco:h11
+  " set guifontwide=Hack\ Regular\ Nerd\ Font\ Complete:h11
+  set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h11
+  set guioptions+=c
+  set linespace=1
 endif
 
 if dein#load_state(g:plugin_path)

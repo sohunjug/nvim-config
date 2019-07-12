@@ -10,6 +10,8 @@ if has('vim_starting')
   set encoding=UTF-8
   scriptencoding UTF-8
 endif
+set cursorline
+set cursorcolumn
 set laststatus=2
 set showtabline=2
 set statusline=-        " hide file name in statusline
@@ -45,7 +47,7 @@ endif
 set history=200
 set number
 set timeout ttimeout
-set cmdheight=1         " Height of the command line
+set cmdheight=2         " Height of the command line
 set timeoutlen=500
 set ttimeoutlen=10
 set updatetime=100
@@ -67,6 +69,7 @@ set shiftwidth=2
 set smarttab
 set autoindent
 set smartindent
+set cindent
 set shiftround
 " }}}
 set hidden

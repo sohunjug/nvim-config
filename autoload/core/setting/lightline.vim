@@ -50,18 +50,18 @@ endfunction
 
 function! LightlineLineinfo() abort
   return &filetype ==? 'help'             ? ''  :
-  \      &filetype ==? 'defx'             ? ' ' :
-  \      &filetype ==? 'denite'           ? ' ' :
-  \      &filetype ==? 'tagbar'           ? ' ' :
-  \      &filetype ==? 'vista_kind'       ? ' ' :
-  \      &filetype ==? 'vista'            ? ' ' :
-  \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
-  \      s:lightline_is_lean() || s:lightline_is_plain() ? ' '  :
-  \      printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
+        \ &filetype ==? 'defx'             ? ' ' :
+        \ &filetype ==? 'denite'           ? ' ' :
+        \ &filetype ==? 'tagbar'           ? ' ' :
+        \ &filetype ==? 'vista_kind'       ? ' ' :
+        \ &filetype ==? 'vista'            ? ' ' :
+        \ &filetype =~? '\v^mundo(diff)?$' ? ' ' :
+        \ s:lightline_is_lean() || s:lightline_is_plain() ? ' '  :
+        \ printf('☰ %d:%d %d%%', line('.'), col('.'), 100*line('.')/line('$'))
 endfunction
 
 function! LightlineMode() abort
-    return s:lightline_is_lean() || s:lightline_is_plain() ? toupper(&filetype) : Lightlinemode()
+  return s:lightline_is_lean() || s:lightline_is_plain() ? toupper(&filetype) : Lightlinemode()
 endfunction
 
 function! Lightlinemode()
@@ -118,8 +118,8 @@ endfunction
 
 function! s:lightline_modified() abort
   return s:lightline_is_lean() || s:lightline_is_plain() ?  ''  :
-  \      &modified                                       ?  '' :
-  \      &modifiable                                     ?  ''  : '-'
+        \      &modified                                       ?  '' :
+        \      &modifiable                                     ?  ''  : '-'
 endfunction
 
 function! LightLineReadonly()
@@ -133,46 +133,46 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineGit()abort
-    if &filetype ==? 'defx'
-       return ""
-    endif
-    let gitbranch=get(g:, 'coc_git_status', '')
-    let gitcount=get(b:, 'coc_git_status', '')
-    let gitinfo = []
-    if empty(gitbranch)
-	    let gitbranch=""
-    endif
-    if empty(gitcount)
-	    let gitcount=""
-    endif
-    call add(gitinfo,gitbranch)
-    call add(gitinfo,gitcount)
-    return trim(join(gitinfo,''))
+  if &filetype ==? 'defx'
+    return ""
+  endif
+  let gitbranch=get(g:, 'coc_git_status', '')
+  let gitcount=get(b:, 'coc_git_status', '')
+  let gitinfo = []
+  if empty(gitbranch)
+    let gitbranch=""
+  endif
+  if empty(gitcount)
+    let gitcount=""
+  endif
+  call add(gitinfo,gitbranch)
+  call add(gitinfo,gitcount)
+  return trim(join(gitinfo,''))
 endfunction
 
 function! CocStatusBar() abort
-    let status=get(g:, 'coc_status', '')
-    if empty(status)
-        return ""
-    endif
-    let regstatus=substitute(status,"TSC","Ⓣ ","")
-    let statusbar= split(regstatus)
-    if &filetype ==? "go"
-        let gobar ="Ⓖ "
-        call add(statusbar,gobar)
-    endif
-    "return join(statusbar," ")
-    let s = join(statusbar," ")
-    if empty(s)
-        return ""
-    endif
-    if &filetype ==? 'defx'
-        return ""
-    endif
-    if &filetype ==? 'vista'
-        return ""
-    endif
-     return join(['❖',s])
+  let status=get(g:, 'coc_status', '')
+  if empty(status)
+    return ""
+  endif
+  let regstatus=substitute(status,"TSC","Ⓣ ","")
+  let statusbar= split(regstatus)
+  if &filetype ==? "go"
+    let gobar ="Ⓖ "
+    call add(statusbar,gobar)
+  endif
+  "return join(statusbar," ")
+  let s = join(statusbar," ")
+  if empty(s)
+    return ""
+  endif
+  if &filetype ==? 'defx'
+    return ""
+  endif
+  if &filetype ==? 'vista'
+    return ""
+  endif
+  return join(['❖',s])
 endfunction
 
 function! LightLineCocError()
@@ -198,7 +198,7 @@ function! LightLineCocWarn() abort
   if get(info, 'warning', 0)
     call add(warnmsgs, warning_sign . info['warning'])
   endif
- return join(warnmsgs, ' ')
+  return join(warnmsgs, ' ')
 endfunction
 function! LightlineCocFixes() abort
   let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
@@ -231,8 +231,8 @@ function! CocUpdateQuickFixes(error, actions) abort
 endfunction
 
 autocmd  AutoCmd User CocDiagnosticChange
-\   call lightline#update()
-\|  call CocActionAsync('quickfixes', function('CocUpdateQuickFixes'))
+      \   call lightline#update()
+      \|  call CocActionAsync('quickfixes', function('CocUpdateQuickFixes'))
 
 
 function! LightLineFname()
@@ -254,10 +254,10 @@ function! LightLineFilename()
         \ ('' != expand('%:t') ? expand('%:t') : '')
 endfunction
 function! FileEncoding()
-    if &filetype==?'defx'
-        return ""
-    endif
-   return (&fenc!=#""?&fenc:&enc)
+  if &filetype==?'defx'
+    return ""
+  endif
+  return (&fenc!=#""?&fenc:&enc)
 endfunction
 
 function! LightLineFiletype()

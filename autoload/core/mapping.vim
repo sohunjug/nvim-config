@@ -52,8 +52,8 @@ nnoremap <C-x>  :bd<CR>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bo :BOnly<CR>
 
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
 "switch windw
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l

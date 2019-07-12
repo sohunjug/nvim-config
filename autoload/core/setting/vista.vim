@@ -5,10 +5,10 @@ let g:vista#renderer#enable_icon = 1
 let g:vista_sidebar_width = 40
 
 let g:vista_executive_for = {
-  \ 'c': 'coc',
-  \ 'cpp': 'coc',
-  \ 'go': 'ctags',
-  \ 'javascript': 'coc',
-  \ 'javascript.jsx': 'coc',
-  \ 'python': 'coc',
-  \ }
+      \ 'c': 'coc',
+      \ 'cpp': 'coc',
+      \ 'go': 'ctags',
+      \ 'javascript': 'coc',
+      \ 'javascript.jsx': 'coc',
+      \ 'python': 'coc',
+      \ }

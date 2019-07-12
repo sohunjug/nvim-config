@@ -18,7 +18,6 @@ let g:which_key_map = {
             \ },
       \ 'c' : {
             \ 'name' : 'Comment',
-            \ 'c' : 'CommentToggle',
             \ },
       \ 'd' : 'Dash' ,
       \ 'G' : 'Goyo' ,
