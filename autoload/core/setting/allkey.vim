@@ -127,14 +127,14 @@ endif
 
 if dein#tap('vim-go')
   autocmd AutoCmd FileType go
-    \  nmap <Leader>gov <Plug>(go-def-vertical)
-    \ | nmap <Leader>goi <Plug>(go-info)
-    \ | nmap <Leader>god <Plug>(go-doc)
-    \ | nmap <leader>gor <Plug>(go-run)
-    \ | nmap <leader>gob <Plug>(go-build)
-    \ | nmap <leader>got <Plug>(go-test)
-    \ | nmap <leader>goc <Plug>(go-coverage)
-    \ | nmap <Leader>gr  <Plug>(go-rename)
+        \  nmap <Leader>gov <Plug>(go-def-vertical)
+        \ | nmap <Leader>goi <Plug>(go-info)
+        \ | nmap <Leader>god <Plug>(go-doc)
+        \ | nmap <leader>gor <Plug>(go-run)
+        \ | nmap <leader>gob <Plug>(go-build)
+        \ | nmap <leader>got <Plug>(go-test)
+        \ | nmap <leader>goc <Plug>(go-coverage)
+        \ | nmap <Leader>gr  <Plug>(go-rename)
 endif
 
 if dein#tap('vim-easygit')
@@ -266,9 +266,9 @@ if dein#tap('vim-smartchr')
   inoremap <expr> , smartchr#one_of(', ', ',')
   augroup AutoCmd
     autocmd FileType go inoremap <buffer><expr> ;
-      \ smartchr#loop(':=',';')
+          \ smartchr#loop(':=',';')
     autocmd FileType go inoremap <buffer> <expr> .
-      \ smartchr#loop('.', '->', '<-','...')
+          \ smartchr#loop('.', '->', '<-','...')
   augroup end
 endif
 

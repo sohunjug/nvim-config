@@ -26,17 +26,17 @@ else
 endif
 if has('mac')
   let g:clipboard = {
-    \   'name': 'macOS-clipboard',
-    \   'copy': {
-    \      '+': 'pbcopy',
-    \      '*': 'pbcopy',
-    \    },
-    \   'paste': {
-    \      '+': 'pbpaste',
-    \      '*': 'pbpaste',
-    \   },
-    \   'cache_enabled': 0,
-    \ }
+        \   'name': 'macOS-clipboard',
+        \   'copy': {
+        \      '+': 'pbcopy',
+        \      '*': 'pbcopy',
+        \    },
+        \   'paste': {
+        \      '+': 'pbpaste',
+        \      '*': 'pbpaste',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
 endif
 
 " if has('clipboard')
@@ -123,16 +123,20 @@ augroup END
 " FastFold
 " Credits: https://github.com/Shougo/shougo-s-github
 autocmd AutoCmd TextChangedI,TextChanged *
-  \ if &l:foldenable && &l:foldmethod !=# 'manual' |
-  \   let b:foldmethod_save = &l:foldmethod |
-  \   let &l:foldmethod = 'manual' |
-  \ endif
+      \ if &l:foldenable && &l:foldmethod !=# 'manual' |
+      \   let b:foldmethod_save = &l:foldmethod |
+      \   let &l:foldmethod = 'manual' |
+      \ else |
+      \   echom 'Changed' |
+      \ endif
 
 autocmd AutoCmd BufWritePost *
-  \ if &l:foldmethod ==# 'manual' && exists('b:foldmethod_save') |
-  \   let &l:foldmethod = b:foldmethod_save |
-  \   execute 'normal! zx' |
-  \ endif
+      \ if &l:foldmethod ==# 'manual' && exists('b:foldmethod_save') |
+      \   let &l:foldmethod = b:foldmethod_save |
+      \   execute 'normal! zx' |
+      \ else |
+      \   echom 'Writed' |
+      \ endif
 
 if has('folding')
   set foldenable
@@ -231,8 +235,8 @@ highlight BufTabLineCurrent ctermbg=96 guibg=#5d4d7a
 "GetColorSynatxGroup
 " --------------------------------<F10>-------------------------
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 command! -nargs=? -complete=buffer -bang BOnly :call BufOnly('<args>', '<bang>')
 
