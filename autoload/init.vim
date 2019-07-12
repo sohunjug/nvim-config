@@ -22,3 +22,5 @@ augroup AutoCmd
 augroup END
 
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/core/mapping.vim'
+
+set term=xterm-256color
