@@ -89,8 +89,8 @@ let g:loaded_zipPlugin         = 1
 function! s:dein_load_yaml(filename) abort
   " Fallback to use python3 and PyYAML
 python3 << endpython
-  import vim, yaml
-  with open(vim.eval('a:filename'), 'r') as f:
+import vim, yaml
+with open(vim.eval('a:filename'), 'r') as f:
     vim.vars['denite_plugins'] = yaml.safe_load(f.read())
 endpython
 
