@@ -24,10 +24,16 @@
     ]
   hook_source: source $PLUGPATH/leaderf.vim
 
+- repo: scrooloose/nerdcommenter
+  on_map: { nvx: <Plug> }
+  hook_source: source $PLUGPATH/nerdcommenter.vim
+
 #}}}
 #
 - repo: vim-scripts/a.vim
+  on_map: { n: <> }
   on_ft: [c, cpp]
+  hook_source: nmap <leader>fa :A<CR>
 
 - repo: octol/vim-cpp-enhanced-highlight
   on_ft: [c, cpp]
@@ -36,9 +42,9 @@
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
-  build: yarn install --frozen-lockfile
+  build: call coc#util#install()
+  #build: yarn install --frozen-lockfile
   hook_source: source $PLUGPATH/coc.vim
-# build: call coc#util#install()
 # }}}
 
 # Lazy Loading
