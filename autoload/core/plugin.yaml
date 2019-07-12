@@ -34,8 +34,10 @@
   on_map: { nvxo: <Plug> }
   on_ft: [c, cpp]
   hook_source: |
+    echom "hook_source"
     nmap <leader>fa :A<CR>
   hook_post_source: |
+    echom "hook_post_source"
     inoremap <leader>is <Nop>
     inoremap <leader>ih <Nop>
     inoremap <leader>ihn <Nop>
