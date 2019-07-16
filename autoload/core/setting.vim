@@ -83,6 +83,7 @@ set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
 
 set sessionoptions-=buffers
 set sessionoptions-=options
+set sessionoptions-=blank
 set sessionoptions-=tabpages
 set sessionoptions-=help
 set ignorecase      " Search ignoring case

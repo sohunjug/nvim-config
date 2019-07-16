@@ -9,8 +9,9 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_remove_lines = ['setlocal', 'winheight']
 let g:startify_session_before_save = [
         \ 'echo "Cleaning up before saving.."',
-        \ 'silent! Defx -quit' , 
-        \ 'silent! TagbarToggle'
+        \ 'silent! Defx',
+        \ 'silent! Defx -toggle',
+        \ 'silent! TagbarClose'
         \ ]
 
 let g:startify_skiplist = [
