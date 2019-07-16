@@ -53,12 +53,12 @@ let g:startify_session_number = 15
 let g:startify_list_order = [
       \  ['       最近项目:'],
       \  'sessions',
+      \  ['       常用书签:'],
+      \  'bookmarks',
       \  ['       最近文件:'],
       \  'files',
       \  ['       快捷命令:'],
       \  'commands',
-      \  ['       常用书签:'],
-      \  'bookmarks',
       \ ]
 let g:startify_commands = [
       \  {'h': ['帮助', 'help howto']},
