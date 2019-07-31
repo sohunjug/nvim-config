@@ -5,6 +5,7 @@ set autowrite
 set confirm
 set splitbelow
 set bsdir=buffer
+set mouse=a
 set mousemodel=popup
 if has('vim_starting')
   set encoding=UTF-8
