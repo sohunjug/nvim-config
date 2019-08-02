@@ -108,7 +108,7 @@ function! s:check_file_notnull(filename)abort
   return 1
 endfunction
 
-set packpath=
+set packpath='~/.vim/plugs'
 
 if has('gui_running')
   " set guifont=Monaco:h11

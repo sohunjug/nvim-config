@@ -48,7 +48,7 @@ endif
 set history=200
 set number
 set timeout ttimeout
-set cmdheight=2         " Height of the command line
+set cmdheight=1         " Height of the command line
 set timeoutlen=500
 set ttimeoutlen=10
 set updatetime=100
