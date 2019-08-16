@@ -69,7 +69,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-nnoremap <localleader>sr :aunmenu TouchBar<CR>
+nnoremap <localleader>sm :aunmenu TouchBar<CR>
 nnoremap <localleader>sr :set invrelativenumber<CR>
 nnoremap <localleader>sp :set nopaste! nopaste?<CR>
 nnoremap <silent> <localleader>sh :nohl<cr>
