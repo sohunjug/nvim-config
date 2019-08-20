@@ -49,7 +49,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 nnoremap <silent> <leader>bl :Buffers<CR>
 nmap <leader>y :History:<CR>
 nnoremap <C-x>  :bd<CR>
-nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bd :Bclose<CR>
 nnoremap <leader>bo :BOnly<CR>
 
 vmap <C-x> :!pbcopy<CR>
