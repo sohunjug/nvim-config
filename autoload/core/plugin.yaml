@@ -184,6 +184,9 @@
     let g:EasyMotion_smartcase = 1
     let g:EasyMotion_use_smartsign_us = 1
 
+    #- repo: godlygeek/tabular
+    #on_ft: markdown
+
 - repo: airblade/vim-rooter
   on_path: .*
   hook_source: let g:rooter_patterns = ['.vimrc', '.ycm_extra_conf.py', 'compile_commands.json', '.root', 'package.json', '.git/','go.mod']
@@ -305,7 +308,6 @@
   on_ft: markdown
   hook_add: |
     let g:markdown_fenced_languages = [
-      \ 'h',
       \ 'c',
       \ 'cpp',
       \ 'html',
