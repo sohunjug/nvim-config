@@ -47,6 +47,7 @@ let g:which_key_map = {
       \ 'p' : {
             \ 'name' : 'Project',
             \ 'e' : 'EditPluginsConfig',
+            \ 'i' : 'PythonInterpreter',
             \ },
       \ 'leader' : {
             \ 'name' : 'Easymotion',

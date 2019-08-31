@@ -79,6 +79,8 @@
   //python
   "python.autoComplete.addBrackets": true,
   "python.venvPath": "/usr/local/var/pyenv",
+  "python.envFile": "${workspaceFolder}/.python-version",
+  "python.globalModuleInstallation": true,
   // eslint
   "eslint.filetypes": [
     "javascript",

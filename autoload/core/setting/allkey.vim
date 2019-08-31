@@ -64,6 +64,7 @@ if dein#tap('coc.nvim')
   nnoremap <silent> <leader>ok  :<C-u>CocPrev<CR>
   " Resume latest coc list
   nnoremap <silent> <leader>or  :<C-u>CocListResume<CR>
+  nnoremap <silent> <leader>pi  :CocCommand python.setInterpreter<cr>
   " Use `[c` and `]c` for navigate diagnostics
   nmap <silent> ]c <Plug>(coc-diagnostic-prev)
   nmap <silent> [c <Plug>(coc-diagnostic-next)
