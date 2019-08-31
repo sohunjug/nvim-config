@@ -78,6 +78,7 @@
   },
   //python
   "python.autoComplete.addBrackets": true,
+  "python.venvPath": "/usr/local/var/pyenv",
   // eslint
   "eslint.filetypes": [
     "javascript",
