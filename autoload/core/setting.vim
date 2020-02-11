@@ -315,10 +315,10 @@ function! s:Bclose(bang, buffer)
   endif
   " Numbers of windows that view target buffer which we will delete.
   let wnums = filter(range(1, winnr('$')), 'winbufnr(v:val) == btarget')
-  if !g:bclose_multiple && len(wnums) > 1
-    call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
-    return
-  endif
+  "if !g:bclose_multiple && len(wnums) > 1
+  "  call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
+  "  return
+  "endif
   let wcurrent = winnr()
   for w in wnums
     execute w.'wincmd w'
