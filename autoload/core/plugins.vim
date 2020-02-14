@@ -113,7 +113,7 @@ set packpath='~/.vim/plugs'
 if has('gui_running')
   " set guifont=Monaco:h11
   " set guifontwide=Hack\ Regular\ Nerd\ Font\ Complete:h11
-  set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h11
+"  set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h11
   set guioptions+=c
   set linespace=1
 endif
